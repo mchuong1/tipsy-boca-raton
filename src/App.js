@@ -1,9 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
+
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
-    <div className="App">
+    <div data-test="component-app">
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+      </Switch>      
     </div>
   );
 }

@@ -1,6 +1,6 @@
 {
-  trailingComma: "all",
-  jsxSingleQuote: true,
-  singleQuote: true,
-  semi: true
+  "trailingComma": "all",
+  "jsxSingleQuote": true,
+  "singleQuote": true,
+  "semi": true
 }
