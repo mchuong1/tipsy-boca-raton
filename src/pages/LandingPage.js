@@ -14,13 +14,21 @@ const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
   },
+  imageContainer: {
+    position: 'relative',
+    top: 0,
+    height: '100vh',
+    zIndex: '-99'
+  },
   imageWrapper: {
     backgroundColor: 'black',
-    position: 'absolute',
-    top: 0
+    position: 'relative',
+    height: '100vh'
   },
-  landingDiv: {
+  imgMsg: {
     padding: '0px 40px',
+    position: 'relative',
+    top: '-80vh',
     maxWidth: '500px',
     '& h2': {
       color: 'white',
@@ -41,6 +49,10 @@ const useStyles = makeStyles({
   toolBar: {
     display: 'flex',
     placeContent: 'space-between'
+  },
+  aboutUsContainer: {
+    backgroundColor: 'white',
+
   }
 });
 
@@ -55,9 +67,10 @@ export default function LandingPage() {
 
   const coverGirl = cld.image('Tipsy Boca Raton/cover_girl');
   const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
+  const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
 
   return (
-    <div>
+    <div id="landingpage">
       <AppBar classes={{root: classes.appBar}}  position='sticky'>
         <Toolbar classes={{root: classes.toolBar}}>
           <AdvancedImage 
@@ -74,13 +87,15 @@ export default function LandingPage() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <div className={classes.imageWrapper}>
-        <AdvancedImage
-          style={{ width: '100%', opacity: '40%' }}
-          cldImg={coverGirl}
-          plugins={[responsive(200)]}
-        />
-        <div className={classes.landingDiv}>
+      <div id="top-container" className={classes.imageContainer}>
+        <div className={classes.imageWrapper}>
+          <AdvancedImage
+            style={{ transform: 'translate(-39vw, -10vh)', opacity: '60%', width: '140%' }}
+            cldImg={coverGirl}
+            plugins={[responsive(200)]}
+          />
+        </div>
+        <div className={classes.imgMsg}>
           <h2>
             Lorem Ipsum is simply a dummy text of the printing and typesetting
             industry.
@@ -94,6 +109,12 @@ export default function LandingPage() {
             Book Now
           </Button>
         </div>
+      </div>
+      <div id="aboutUs-container" className={classes.aboutUsContainer}>
+        <AdvancedImage
+          cldImg={thinBrushStroke}
+          style={{width: '100%'}}
+        />
       </div>
     </div>
   );
