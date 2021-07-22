@@ -1,11 +1,16 @@
 import React from 'react';
-import { Image, Transformation } from 'cloudinary-react';
 import { makeStyles } from '@material-ui/core';
+import { Cloudinary } from '@cloudinary/base';
+import { AdvancedImage, responsive } from '@cloudinary/react';
 
 
 const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
+  },
+  imageWrapper: {
+    backgroundColor: 'black',
+    
   }
 });
 
@@ -13,23 +18,19 @@ export default function LandingPage() {
 
   const classes = useStyles();
 
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dgpijcm0x'
+    }
+  })
+
+  const coverGirl = cld.image('Tipsy Boca Raton/cover_girl')
+  
   return(
     <div>
-      <Image 
-        publicId='Tipsy Boca Raton/cover_girl'
-        crop="scale" 
-        width="auto"
-        responsive
-        fetchFormat="auto"
-        responsiveUseBreakpoints="true"
-      >
-        <Transformation
-          
-        />
-      </Image>
-      {/* <div className={classes.aboutUs}>
-        <Image publicId='Tipsy Boca Raton/pink_thin_brush_stroke' loading="lazy"/>
-      </div> */}
+      <div className={classes.imageWrapper}>
+        <AdvancedImage style={{width: '100%', opacity: '40%'}} cldImg={coverGirl} plugins={[responsive(200)]} />
+      </div>
       <div id="Our Services">
         Our Services
       </div>
