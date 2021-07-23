@@ -66,7 +66,8 @@ const useStyles = makeStyles({
   },
   aboutUsContainer: {
     backgroundColor: 'white',
-    padding: '20px'
+    padding: '20px',
+    height: '50vh'
   },
   readMore: {
     backgroundColor: 'white',
@@ -86,6 +87,9 @@ const useStyles = makeStyles({
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  whyChooseUsContainer: {
+    
   },
   whyChooseUsMsg: {
     position: 'absolute',
@@ -109,7 +113,7 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     opacity: '0.6'
-  }
+  },
 });
 
 export default function LandingPage() {
@@ -155,7 +159,7 @@ export default function LandingPage() {
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
         <AdvancedImage
           cldImg={thinBrushStroke}
-          style={{width: '100%', overflow: 'hidden'}}
+          style={{width: '100%', overflow: 'hidden', maxHeight: '50vh'}}
         />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
@@ -168,17 +172,39 @@ export default function LandingPage() {
           </Button>
         </div>
       </div>
-      <div id="ourServices-container">
+      <div id="ourServices-container" style={{height: '100vh', padding: '10px'}}>
         <Paper classes={{root: classes.ourServicePaper}}>
           <h1>Our Services</h1>
-          <div className={classes.serviceNameRow}>
-            <h2>Type of service</h2>
-            <h2>30m</h2>
+          <div id="service-component">
+            <div className={classes.serviceNameRow}>
+              <h2>Type of service</h2>
+              <h2>30m</h2>
+            </div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            </p>
           </div>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
-          </p>
+          <div id="service-component">
+            <div className={classes.serviceNameRow}>
+              <h2>Type of service</h2>
+              <h2>30m</h2>
+            </div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            </p>
+          </div>
+          <div id="service-component">
+            <div className={classes.serviceNameRow}>
+              <h2>Type of service</h2>
+              <h2>30m</h2>
+            </div>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            </p>
+          </div>
 
           <Button variant='outlined' classes={{ root: classes.readMore }}>
             View All
