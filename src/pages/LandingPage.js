@@ -17,13 +17,13 @@ const cld = new Cloudinary({
   },
 });
 
-const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/';
-const coverGirlUrl = `${cloudinaryUrl}/Tipsy%20Boca%20Raton/cover_girl`;
+const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%20Boca%20Raton';
+const coverGirlUrl = `${cloudinaryUrl}/cover_girl`;
+const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
 const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
 const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
 const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
-const whiteNailPolish = cld.image('Tipsy Boca Raton/white_nail_polish');
 
 const useStyles = makeStyles({
   aboutUs: {
@@ -66,6 +66,7 @@ const useStyles = makeStyles({
   },
   aboutUsContainer: {
     backgroundColor: 'white',
+    padding: '20px'
   },
   readMore: {
     backgroundColor: 'white',
@@ -91,9 +92,18 @@ const useStyles = makeStyles({
     top: '195vh',
     padding: '20px',
   },
-  parallax: {
+  parallaxCoverGirl: {
     backgroundImage: `url(${coverGirlUrl})`,
     minHeight: '100vh',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    opacity: '0.6'
+  },
+  parallaxWhiteNailPolish: {
+    backgroundImage: `url(${whiteNailPolishUrl})`,
+    minHeight: '50vh',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -125,7 +135,7 @@ export default function LandingPage() {
       </AppBar>
       <div id="top-container" className={classes.imageContainer}>
         <div className={classes.imageWrapper}>
-          <div className={classes.parallax} />
+          <div className={classes.parallaxCoverGirl} />
         </div>
         <div className={classes.imgMsg}>
           <h2>
@@ -189,10 +199,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div id="testimonials-container">
-        <AdvancedImage
-          cldImg={whiteNailPolish}
-          style={{width: '100%'}}
-        />
+        <div className={classes.parallaxWhiteNailPolish} />
         <h1>Testimonials</h1>
       </div>
     </div>
