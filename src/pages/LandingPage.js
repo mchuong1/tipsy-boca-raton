@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     position: 'relative',
     top: 0,
     height: '100vh',
-    zIndex: '-99'
+    zIndex: '-100'
   },
   imageWrapper: {
     backgroundColor: 'black',
@@ -52,7 +52,17 @@ const useStyles = makeStyles({
   },
   aboutUsContainer: {
     backgroundColor: 'white',
-
+    position: 'absolute'
+  },
+  readMore: {
+    backgroundColor: 'white',
+    color: '#FC5C9C',
+    border: '1px solid #FC5C9C'
+  },
+  aboutUsMsg: {
+    position: 'absolute',
+    top: 0,
+    padding: '20px',
   }
 });
 
@@ -113,8 +123,18 @@ export default function LandingPage() {
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
         <AdvancedImage
           cldImg={thinBrushStroke}
-          style={{width: '100%'}}
+          style={{width: '100vw'}}
         />
+        <div className={classes.aboutUsMsg}>
+          <h1>About Us</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          </p>
+          <Button variant='outlined' classes={{ root: classes.readMore }}>
+            Read More
+          </Button>
+        </div>
       </div>
     </div>
   );
