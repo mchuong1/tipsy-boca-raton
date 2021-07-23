@@ -5,10 +5,25 @@ import {
   AppBar,
   Toolbar,
   IconButton,
+  Paper,
 } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
-import { AdvancedImage, responsive } from '@cloudinary/react';
+import { AdvancedImage } from '@cloudinary/react';
 import MenuIcon from '@material-ui/icons/Menu';
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'dgpijcm0x',
+  },
+});
+
+const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/';
+const coverGirlUrl = `${cloudinaryUrl}/Tipsy%20Boca%20Raton/cover_girl`;
+
+const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
+const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
+const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
+const whiteNailPolish = cld.image('Tipsy Boca Raton/white_nail_polish');
 
 const useStyles = makeStyles({
   aboutUs: {
@@ -22,8 +37,7 @@ const useStyles = makeStyles({
   },
   imageWrapper: {
     backgroundColor: 'black',
-    position: 'relative',
-    height: '100vh'
+    height: '100vh',
   },
   imgMsg: {
     padding: '0px 40px',
@@ -52,7 +66,6 @@ const useStyles = makeStyles({
   },
   aboutUsContainer: {
     backgroundColor: 'white',
-    position: 'absolute'
   },
   readMore: {
     backgroundColor: 'white',
@@ -61,23 +74,36 @@ const useStyles = makeStyles({
   },
   aboutUsMsg: {
     position: 'absolute',
-    top: 0,
+    top: '105vh',
     padding: '20px',
+  },
+  ourServicePaper: {
+    padding: '20px',
+    backgroundColor: '#E5E5E5'
+  },
+  serviceNameRow: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  whyChooseUsMsg: {
+    position: 'absolute',
+    top: '195vh',
+    padding: '20px',
+  },
+  parallax: {
+    backgroundImage: `url(${coverGirlUrl})`,
+    minHeight: '100vh',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    opacity: '0.6'
   }
 });
 
 export default function LandingPage() {
   const classes = useStyles();
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'dgpijcm0x',
-    },
-  });
-
-  const coverGirl = cld.image('Tipsy Boca Raton/cover_girl');
-  const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
-  const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
 
   return (
     <div id="landingpage">
@@ -99,11 +125,7 @@ export default function LandingPage() {
       </AppBar>
       <div id="top-container" className={classes.imageContainer}>
         <div className={classes.imageWrapper}>
-          <AdvancedImage
-            style={{ transform: 'translate(-39vw, -10vh)', opacity: '60%', width: '140%' }}
-            cldImg={coverGirl}
-            plugins={[responsive(200)]}
-          />
+          <div className={classes.parallax} />
         </div>
         <div className={classes.imgMsg}>
           <h2>
@@ -123,7 +145,7 @@ export default function LandingPage() {
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
         <AdvancedImage
           cldImg={thinBrushStroke}
-          style={{width: '100vw'}}
+          style={{width: '100%', overflow: 'hidden'}}
         />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
@@ -135,6 +157,43 @@ export default function LandingPage() {
             Read More
           </Button>
         </div>
+      </div>
+      <div id="ourServices-container">
+        <Paper classes={{root: classes.ourServicePaper}}>
+          <h1>Our Services</h1>
+          <div className={classes.serviceNameRow}>
+            <h2>Type of service</h2>
+            <h2>30m</h2>
+          </div>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          </p>
+
+          <Button variant='outlined' classes={{ root: classes.readMore }}>
+            View All
+          </Button>
+        </Paper>
+      </div>
+      <div id='whyChooseUs-container'>
+        <AdvancedImage
+          cldImg={brushStroke}
+          style={{width: '100%'}}
+        />
+        <div className={classes.whyChooseUsMsg}>
+          <h1>Why Choose Us?</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          </p>
+        </div>
+      </div>
+      <div id="testimonials-container">
+        <AdvancedImage
+          cldImg={whiteNailPolish}
+          style={{width: '100%'}}
+        />
+        <h1>Testimonials</h1>
       </div>
     </div>
   );
