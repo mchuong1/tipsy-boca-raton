@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  makeStyles,
-  Paper,
-} from '@material-ui/core';
+import { Button, makeStyles, Paper } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
 import CoverGirl from '../components/CoverGirl';
@@ -44,12 +40,12 @@ const useStyles = makeStyles({
     backgroundColor: 'white',
     padding: '20px',
     height: '50vh',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   readMore: {
     backgroundColor: 'white',
     color: '#FC5C9C',
-    border: '1px solid #FC5C9C'
+    border: '1px solid #FC5C9C',
   },
   aboutUsMsg: {
     position: 'absolute',
@@ -58,7 +54,7 @@ const useStyles = makeStyles({
   },
   ourServicePaper: {
     padding: '20px',
-    backgroundColor: '#E5E5E5'
+    backgroundColor: '#E5E5E5',
   },
   serviceNameRow: {
     width: '100%',
@@ -67,7 +63,7 @@ const useStyles = makeStyles({
   },
   whyChooseUsContainer: {
     height: '50vh',
-    padding: '20px'
+    padding: '20px',
   },
   whyChooseUsMsg: {
     position: 'absolute',
@@ -79,9 +75,15 @@ const useStyles = makeStyles({
 export default function LandingPage() {
   const classes = useStyles();
 
+  const goToBooking = () => {
+    const bookUrl =
+      'https://www.fresha.com/a/tipsy-salonbar-boca-raton-5030-champion-boulevard-5359d6na/booking';
+    window.open(bookUrl, '_blank').focus();
+  };
+
   return (
-    <div id="landingpage">
-      <div id="top-container" className={classes.imageContainer}>
+    <div id='landingpage'>
+      <div id='top-container' className={classes.imageContainer}>
         <CoverGirl>
           <div className={classes.imgMsg}>
             <h2>
@@ -93,59 +95,70 @@ export default function LandingPage() {
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s
             </p>
-            <Button variant='contained' classes={{ root: classes.bookNow }}>
+            <Button
+              variant='contained'
+              classes={{ root: classes.bookNow }}
+              onClick={goToBooking}
+            >
               Book Now
             </Button>
           </div>
         </CoverGirl>
       </div>
-      <div id="aboutUs-container" className={classes.aboutUsContainer}>
+      <div id='aboutUs-container' className={classes.aboutUsContainer}>
         <AdvancedImage
           cldImg={brushStroke}
-          style={{width: '125%', transform: 'translate( 0%, -20%)'}}
+          style={{ width: '125%', transform: 'translate( 0%, -20%)' }}
         />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industrys standard dummy text
+            ever since the 1500s
           </p>
           <Button variant='outlined' classes={{ root: classes.readMore }}>
             Read More
           </Button>
         </div>
       </div>
-      <div id="ourServices-container" style={{height: '100vh', padding: '10px'}}>
-        <Paper classes={{root: classes.ourServicePaper}}>
+      <div
+        id='ourServices-container'
+        style={{ height: '100vh', padding: '10px' }}
+      >
+        <Paper classes={{ root: classes.ourServicePaper }}>
           <h1>Our Services</h1>
-          <div id="service-component">
+          <div id='service-component'>
             <div className={classes.serviceNameRow}>
               <h2>Type of service</h2>
               <h2>30m</h2>
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industrys standard dummy text
+              ever since the 1500s
             </p>
           </div>
-          <div id="service-component">
+          <div id='service-component'>
             <div className={classes.serviceNameRow}>
               <h2>Type of service</h2>
               <h2>30m</h2>
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industrys standard dummy text
+              ever since the 1500s
             </p>
           </div>
-          <div id="service-component">
+          <div id='service-component'>
             <div className={classes.serviceNameRow}>
               <h2>Type of service</h2>
               <h2>30m</h2>
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industrys standard dummy text
+              ever since the 1500s
             </p>
           </div>
 
@@ -155,15 +168,13 @@ export default function LandingPage() {
         </Paper>
       </div>
       <div id='whyChooseUs-container' className={classes.whyChooseUsContainer}>
-        <AdvancedImage
-          cldImg={thinBrushStroke}
-          style={{width: '100%'}}
-        />
+        <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} />
         <div className={classes.whyChooseUsMsg}>
           <h1>Why Choose Us?</h1>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industrys standard dummy text
+            ever since the 1500s
           </p>
         </div>
       </div>

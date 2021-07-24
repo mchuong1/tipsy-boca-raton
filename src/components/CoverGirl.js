@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     position: 'relative',
     top: 0,
     height: '100vh',
-    zIndex: '-100',
   },
   imageWrapper: {
     backgroundColor: 'black',
