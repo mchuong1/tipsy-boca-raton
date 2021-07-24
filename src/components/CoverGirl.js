@@ -26,18 +26,6 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
     opacity: '0.6',
   },
-  imgMsg: {
-    padding: '0px 40px',
-    position: 'relative',
-    top: '-80vh',
-    maxWidth: '500px',
-    '& h2': {
-      color: 'white',
-    },
-    '& p': {
-      color: 'white',
-    },
-  },
 });
 
 const CoverGirl = ({ children }) => {
@@ -48,7 +36,7 @@ const CoverGirl = ({ children }) => {
       <div className={classes.imageWrapper}>
         <div className={classes.parallaxCoverGirl} />
       </div>
-      <div className={classes.imgMsg}>{children}</div>
+      {children}
     </div>
   );
 };

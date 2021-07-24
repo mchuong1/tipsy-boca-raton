@@ -24,6 +24,18 @@ const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
   },
+  imgMsg: {
+    padding: '0px 40px',
+    position: 'relative',
+    top: '-80vh',
+    maxWidth: '500px',
+    '& h2': {
+      color: 'white',
+    },
+    '& p': {
+      color: 'white',
+    },
+  },
   bookNow: {
     backgroundColor: '#FC5C9C',
     color: 'white',
@@ -71,18 +83,20 @@ export default function LandingPage() {
     <div id="landingpage">
       <div id="top-container" className={classes.imageContainer}>
         <CoverGirl>
-          <h2>
-            Lorem Ipsum is simply a dummy text of the printing and typesetting
-            industry.
-          </h2>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            ever since the 1500s
-          </p>
-          <Button variant='contained' classes={{ root: classes.bookNow }}>
-            Book Now
-          </Button>
+          <div className={classes.imgMsg}>
+            <h2>
+              Lorem Ipsum is simply a dummy text of the printing and typesetting
+              industry.
+            </h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industrys standard dummy text
+              ever since the 1500s
+            </p>
+            <Button variant='contained' classes={{ root: classes.bookNow }}>
+              Book Now
+            </Button>
+          </div>
         </CoverGirl>
       </div>
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
