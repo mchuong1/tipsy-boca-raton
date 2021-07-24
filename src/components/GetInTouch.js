@@ -9,12 +9,11 @@ const useStyles = makeStyles({
     backgroundColor: '#E5E5E5',
   },
   input: {
-
     width: '100%',
     marginBottom: '10px',
     '& div': {
       backgroundColor: 'white',
-    }
+    },
   },
   primary: {
     backgroundColor: '#FC5C9C',
@@ -23,30 +22,33 @@ const useStyles = makeStyles({
   form: {},
 });
 
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 const validationSchema = yup.object({
   firstName: yup
-  .string('Enter your First Name.')
-  .required('First Name is required.'),
+    .string('Enter your First Name.')
+    .required('First Name is required.'),
   lastName: yup
-  .string('Enter your Last Name.')
-  .required('Last Name is required.'),
+    .string('Enter your Last Name.')
+    .required('Last Name is required.'),
   phoneNumber: yup
-  .string('Enter your Phone Number.')
-  .required('Phone Number is required.'),
+    .string('Enter your Phone Number.')
+    .required('Phone Number is required.')
+    .matches(phoneRegExp, 'Phone Number is invalid Ex 1234567890, 123-456-7890'),
   email: yup
-  .string('Enter your Email.')
-  .required('Email is required.'),
-  message: yup
-  .string('Enter your Message.')
-  .required('Message is required.'),
+    .string('Enter your Email.')
+    .email('Email must be a valid Email')
+    .required('Email is required.'),
+  message: yup.string('Enter your Message.').required('Message is required.'),
 });
 
 const GetInTouch = () => {
   const classes = useStyles();
 
   const handleSubmit = async (values) => {
-    console.log(values)
-  }
+    console.log(values);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -54,7 +56,7 @@ const GetInTouch = () => {
       lastName: '',
       phoneNumber: '',
       email: '',
-      message: ''
+      message: '',
     },
     validationSchema,
     onSubmit: (values) => handleSubmit(values),
@@ -106,7 +108,6 @@ const GetInTouch = () => {
               formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)
             }
             helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
           <TextField
             classes={{ root: classes.input }}
@@ -134,7 +135,11 @@ const GetInTouch = () => {
             error={formik.touched.message && Boolean(formik.errors.message)}
             helperText={formik.touched.message && formik.errors.message}
           />
-          <Button variant='contained' type='submit' classes={{ root: classes.primary }}>
+          <Button
+            variant='contained'
+            type='submit'
+            classes={{ root: classes.primary }}
+          >
             Submit
           </Button>
         </form>
