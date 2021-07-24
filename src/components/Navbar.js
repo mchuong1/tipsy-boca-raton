@@ -70,7 +70,7 @@ const Navbar = (props) => {
   const Navmenu = () => (
     <div className={classes.navMenu}>
       <div className={classes.iconRow}>
-        <AdvancedImage cldImg={tipsyLogo} style={{ width: '50%' }} />
+        <AdvancedImage cldImg={tipsyLogo} style={{ width: '50%' }}/>
         <IconButton edge='start' onClick={handleClick}>
           <ChevronLeftIcon style={{ fontSize: '2em' }} />
         </IconButton>
@@ -90,7 +90,7 @@ const Navbar = (props) => {
       {open && <Navmenu />}
       <AppBar classes={{ root: classes.appBar }} position='sticky'>
         <Toolbar classes={{ root: classes.toolBar }}>
-          <AdvancedImage style={{ width: '100px' }} cldImg={tipsyLogoWhite} />
+          <AdvancedImage style={{ width: '100px', cursor: 'pointer' }} cldImg={tipsyLogoWhite} onClick={() => history.push('/')}/>
           <IconButton
             edge='start'
             color='inherit'
