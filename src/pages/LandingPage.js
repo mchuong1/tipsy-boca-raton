@@ -2,14 +2,15 @@ import React from 'react';
 import {
   Button,
   makeStyles,
-  AppBar,
-  Toolbar,
-  IconButton,
   Paper,
+  TextField,
 } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
-import MenuIcon from '@material-ui/icons/Menu';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailIcon from '@material-ui/icons/Mail';
 
 const cld = new Cloudinary({
   cloud: {
@@ -21,7 +22,6 @@ const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%2
 const coverGirlUrl = `${cloudinaryUrl}/cover_girl`;
 const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
-const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
 const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
 const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
 
@@ -39,6 +39,15 @@ const useStyles = makeStyles({
     backgroundColor: 'black',
     height: '100vh',
   },
+  parallaxCoverGirl: {
+    backgroundImage: `url(${coverGirlUrl})`,
+    minHeight: '100vh',
+    backgroundAttachment: 'fixed',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    opacity: '0.6'
+  },
   imgMsg: {
     padding: '0px 40px',
     position: 'relative',
@@ -55,19 +64,11 @@ const useStyles = makeStyles({
     backgroundColor: '#FC5C9C',
     color: 'white',
   },
-  appBar: {
-    backgroundColor: 'black',
-    opacity: '90%',
-    zIndex: 99
-  },
-  toolBar: {
-    display: 'flex',
-    placeContent: 'space-between'
-  },
   aboutUsContainer: {
     backgroundColor: 'white',
     padding: '20px',
-    height: '50vh'
+    height: '50vh',
+    overflow: 'hidden'
   },
   readMore: {
     backgroundColor: 'white',
@@ -89,21 +90,13 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
   },
   whyChooseUsContainer: {
-    
+    height: '50vh',
+    padding: '20px'
   },
   whyChooseUsMsg: {
     position: 'absolute',
-    top: '195vh',
+    top: '265vh',
     padding: '20px',
-  },
-  parallaxCoverGirl: {
-    backgroundImage: `url(${coverGirlUrl})`,
-    minHeight: '100vh',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    opacity: '0.6'
   },
   parallaxWhiteNailPolish: {
     backgroundImage: `url(${whiteNailPolishUrl})`,
@@ -114,6 +107,31 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
     opacity: '0.6'
   },
+  testimonialMsg: {
+    position: 'absolute',
+    top: '325vh',
+    textAlign: 'center',
+  },
+  input: {
+    backgroundColor: 'white',
+    width: '100%',
+  },
+  contactContainer: {
+    padding: '20px'
+  },
+  footer: {
+    backgroundColor: '#C4C4C4',
+    height: '100px',
+    textAlign: 'center',
+    justifyItems: 'center',
+    padding: '20px',
+    display: 'grid'
+  },
+  socialBar: {
+    display: 'flex',
+    width: '24vw',
+    placeContent: 'space-evenly',
+  }
 });
 
 export default function LandingPage() {
@@ -121,22 +139,6 @@ export default function LandingPage() {
 
   return (
     <div id="landingpage">
-      <AppBar classes={{root: classes.appBar}}  position='sticky'>
-        <Toolbar classes={{root: classes.toolBar}}>
-          <AdvancedImage 
-            style={{width: '100px'}}
-            cldImg={tipsyLogo}
-          />
-          <IconButton
-            edge='start'
-            className={classes.menuButton}
-            color='inherit'
-            aria-label='menu'
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
       <div id="top-container" className={classes.imageContainer}>
         <div className={classes.imageWrapper}>
           <div className={classes.parallaxCoverGirl} />
@@ -158,8 +160,8 @@ export default function LandingPage() {
       </div>
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
         <AdvancedImage
-          cldImg={thinBrushStroke}
-          style={{width: '100%', overflow: 'hidden', maxHeight: '50vh'}}
+          cldImg={brushStroke}
+          style={{width: '125%', transform: 'translate( 0%, -20%)'}}
         />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
@@ -211,9 +213,9 @@ export default function LandingPage() {
           </Button>
         </Paper>
       </div>
-      <div id='whyChooseUs-container'>
+      <div id='whyChooseUs-container' className={classes.whyChooseUsContainer}>
         <AdvancedImage
-          cldImg={brushStroke}
+          cldImg={thinBrushStroke}
           style={{width: '100%'}}
         />
         <div className={classes.whyChooseUsMsg}>
@@ -226,7 +228,80 @@ export default function LandingPage() {
       </div>
       <div id="testimonials-container">
         <div className={classes.parallaxWhiteNailPolish} />
-        <h1>Testimonials</h1>
+        <div className={classes.testimonialMsg}>
+          <h1>Testimonials</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          </p>
+        </div>
+      </div>
+      <div id="contact-container" className={classes.contactContainer}>
+        <h1>Contact</h1>
+        <h2>Tipsy Salon Bar Boca Raton</h2>
+        <p>5030 Champion Blvd Ste G12, Boca Raton, FL 33496</p>
+        <p>(561) 419-7199</p>
+
+        <p>Hours</p>
+        <p>
+          Monday-Friday: 9:30 AM - 7:30 PM
+          <br/>
+          Saturday: 9:30 AM - 7 PM
+          <br/>
+          Sunday: 11 AM - 5 PM
+        </p>
+      </div>
+      <div id="getInTouch-container" style={{padding: '20px'}}>
+        <Paper classes={{ root: classes.ourServicePaper }}>
+          <h1>Get In Touch</h1>
+          <p>
+            Have any questions? Feel free to use the contact form below to get in touch with us. 
+            We will answer you as soon as possible!
+          </p>
+          <form>
+            <TextField
+              classes={{ root: classes.input }}
+              variant="outlined"
+              id="firstName"
+              name="firstName"
+              label="First Name"
+            />
+            <TextField
+              classes={{ root: classes.input }}
+              variant="outlined"
+              id="lastName"
+              name="lastName"
+              label="Last Name"
+            />
+            <TextField
+              classes={{ root: classes.input }}
+              variant="outlined"
+              id="phoneNumber"
+              name="phoneNumber"
+              label="Phone Number"
+            />
+            <TextField
+              classes={{ root: classes.input }}
+              variant="outlined"
+              id="email"
+              name="email"
+              label="Email"
+            />
+            <Button variant="contained" classes={{root: classes.bookNow}}>
+              Submit
+            </Button>
+          </form>
+        </Paper>
+      </div>
+      <div id='footer' className={classes.footer}>
+        <div className={classes.socialBar}>
+          <FacebookIcon />
+          <InstagramIcon />
+          <PhoneIcon />
+          <MailIcon />
+        </div>
+        <span>Copyright 2021 TIPSY SALON BAR | All Rights Reserved</span>
+        <span>Web Development by: Matthew Chuong</span>
       </div>
     </div>
   );
