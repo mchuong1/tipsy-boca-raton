@@ -78,7 +78,7 @@ const Navbar = (props) => {
       <div className={classes.menuItems}>
         <h2 onClick={() => handleNavClick('/')} aria-hidden="true">Home</h2>
         <h2 onClick={() => handleNavClick('/About')} aria-hidden="true">About Us</h2>
-        <h2 onClick={() => handleNavClick('/Services')} aria-hidden="true">Services</h2>
+        <h2 onClick={() => handleNavClick('/Service')} aria-hidden="true">Services</h2>
         <h2 onClick={() => handleNavClick('/OnlineBooking')} aria-hidden="true">Online Booking</h2>
         <h2 onClick={() => handleNavClick('/Newsletter')} aria-hidden="true">Newsletter</h2>
       </div>
