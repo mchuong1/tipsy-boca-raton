@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
+import CoverGirl from '../components/CoverGirl';
 
 const cld = new Cloudinary({
   cloud: {
@@ -15,7 +16,6 @@ const cld = new Cloudinary({
 });
 
 const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%20Boca%20Raton';
-const coverGirlUrl = `${cloudinaryUrl}/cover_girl`;
 const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
 const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
@@ -24,37 +24,6 @@ const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
 const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
-  },
-  imageContainer: {
-    position: 'relative',
-    top: 0,
-    height: '100vh',
-    zIndex: '-100'
-  },
-  imageWrapper: {
-    backgroundColor: 'black',
-    height: '100vh',
-  },
-  parallaxCoverGirl: {
-    backgroundImage: `url(${coverGirlUrl})`,
-    minHeight: '100vh',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    opacity: '0.6'
-  },
-  imgMsg: {
-    padding: '0px 40px',
-    position: 'relative',
-    top: '-80vh',
-    maxWidth: '500px',
-    '& h2': {
-      color: 'white',
-    },
-    '& p': {
-      color: 'white',
-    },
   },
   bookNow: {
     backgroundColor: '#FC5C9C',
@@ -123,10 +92,7 @@ export default function LandingPage() {
   return (
     <div id="landingpage">
       <div id="top-container" className={classes.imageContainer}>
-        <div className={classes.imageWrapper}>
-          <div className={classes.parallaxCoverGirl} />
-        </div>
-        <div className={classes.imgMsg}>
+        <CoverGirl>
           <h2>
             Lorem Ipsum is simply a dummy text of the printing and typesetting
             industry.
@@ -139,7 +105,7 @@ export default function LandingPage() {
           <Button variant='contained' classes={{ root: classes.bookNow }}>
             Book Now
           </Button>
-        </div>
+        </CoverGirl>
       </div>
       <div id="aboutUs-container" className={classes.aboutUsContainer}>
         <AdvancedImage
