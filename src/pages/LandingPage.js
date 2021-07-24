@@ -3,20 +3,19 @@ import {
   Button,
   makeStyles,
   Paper,
-  TextField,
 } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
 import CoverGirl from '../components/CoverGirl';
+import Contact from '../components/Contact';
+import GetInTouch from '../components/GetInTouch';
+import Testimonials from '../components/Testimonials';
 
 const cld = new Cloudinary({
   cloud: {
     cloudName: 'dgpijcm0x',
   },
 });
-
-const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%20Boca%20Raton';
-const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
 const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
 const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
@@ -62,27 +61,6 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '265vh',
     padding: '20px',
-  },
-  parallaxWhiteNailPolish: {
-    backgroundImage: `url(${whiteNailPolishUrl})`,
-    minHeight: '50vh',
-    backgroundAttachment: 'fixed',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    opacity: '0.6'
-  },
-  testimonialMsg: {
-    position: 'absolute',
-    top: '325vh',
-    textAlign: 'center',
-  },
-  input: {
-    backgroundColor: 'white',
-    width: '100%',
-  },
-  contactContainer: {
-    padding: '20px'
   },
 });
 
@@ -175,73 +153,9 @@ export default function LandingPage() {
           </p>
         </div>
       </div>
-      <div id="testimonials-container">
-        <div className={classes.parallaxWhiteNailPolish} />
-        <div className={classes.testimonialMsg}>
-          <h1>Testimonials</h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
-          </p>
-        </div>
-      </div>
-      <div id="contact-container" className={classes.contactContainer}>
-        <h1>Contact</h1>
-        <h2>Tipsy Salon Bar Boca Raton</h2>
-        <p>5030 Champion Blvd Ste G12, Boca Raton, FL 33496</p>
-        <p>(561) 419-7199</p>
-
-        <p>Hours</p>
-        <p>
-          Monday-Friday: 9:30 AM - 7:30 PM
-          <br/>
-          Saturday: 9:30 AM - 7 PM
-          <br/>
-          Sunday: 11 AM - 5 PM
-        </p>
-      </div>
-      <div id="getInTouch-container" style={{padding: '20px'}}>
-        <Paper classes={{ root: classes.ourServicePaper }}>
-          <h1>Get In Touch</h1>
-          <p>
-            Have any questions? Feel free to use the contact form below to get in touch with us. 
-            We will answer you as soon as possible!
-          </p>
-          <form>
-            <TextField
-              classes={{ root: classes.input }}
-              variant="outlined"
-              id="firstName"
-              name="firstName"
-              label="First Name"
-            />
-            <TextField
-              classes={{ root: classes.input }}
-              variant="outlined"
-              id="lastName"
-              name="lastName"
-              label="Last Name"
-            />
-            <TextField
-              classes={{ root: classes.input }}
-              variant="outlined"
-              id="phoneNumber"
-              name="phoneNumber"
-              label="Phone Number"
-            />
-            <TextField
-              classes={{ root: classes.input }}
-              variant="outlined"
-              id="email"
-              name="email"
-              label="Email"
-            />
-            <Button variant="contained" classes={{root: classes.bookNow}}>
-              Submit
-            </Button>
-          </form>
-        </Paper>
-      </div>
+      <Testimonials />
+      <Contact />
+      <GetInTouch />
     </div>
   );
 }

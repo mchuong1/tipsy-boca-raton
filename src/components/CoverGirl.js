@@ -54,11 +54,11 @@ const CoverGirl = ({ children }) => {
 };
 
 CoverGirl.propTypes = {
-  children: propTypes.shape({}),
+  children: propTypes.shape([]),
 };
 
 CoverGirl.defaultProps = {
-  children: {},
+  children: [],
 };
 
 export default CoverGirl;
