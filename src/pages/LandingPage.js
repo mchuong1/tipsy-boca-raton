@@ -1,13 +1,22 @@
 import React from 'react';
-import { Button, makeStyles, Paper } from '@material-ui/core';
-import { Cloudinary } from '@cloudinary/base';
+import { Button, makeStyles, Paper, useTheme } from '@material-ui/core';
+import { Cloudinary, Transformation } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
 import { withRouter } from 'react-router';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import PropTypes from 'prop-types';
+import { source } from '@cloudinary/base/actions/overlay';
+import { image } from '@cloudinary/base/qualifiers/source';
+import { scale } from '@cloudinary/base/actions/resize';
+import byAngle from '@cloudinary/base/actions/rotate/byAngle';
+
 import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
 import GetInTouch from '../components/GetInTouch';
 import Testimonials from '../components/Testimonials';
+import { Position } from '@cloudinary/base/qualifiers/position';
+import { compass } from '@cloudinary/base/qualifiers/gravity';
+import { center } from '@cloudinary/base/qualifiers/textAlignment';
 
 const cld = new Cloudinary({
   cloud: {
@@ -15,10 +24,7 @@ const cld = new Cloudinary({
   },
 });
 
-const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
-const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   aboutUs: {
     backgroundColor: 'white',
     position: 'relative',
@@ -29,6 +35,10 @@ const useStyles = makeStyles({
     height: '50vh',
     overflow: 'hidden',
     position: 'relative',
+    [theme.breakpoints.up('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'auto auto',
+    },
   },
   readMore: {
     backgroundColor: 'white',
@@ -36,9 +46,22 @@ const useStyles = makeStyles({
     border: '1px solid #FC5C9C',
   },
   aboutUsMsg: {
-    position: 'absolute',
-    top: '10vh',
+    position: 'relative',
     padding: '20px',
+    zIndex: 1,
+    [theme.breakpoints.up('sm')]: {
+      top: '0vh',
+      gridColumn: 1,
+      gridRow: 1,
+    },
+  },
+  aboutImgWrapper: {
+    width: '100%',
+    transform: 'translate( -6%, -56%)',
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: 2,
+      transform: 'translate( -0%, -12%)',
+    },
   },
   imgMsg: {
     padding: '0px 40px',
@@ -69,17 +92,62 @@ const useStyles = makeStyles({
     padding: '20px',
     position: 'relative',
     overflow: 'hidden',
+    marginBottom: '-42%',
+    [theme.breakpoints.up('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'auto auto',
+      marginBottom: '-5px',
+      padding: '20px 20px 0px 20px',
+    },
+  },
+  whyImgWrapper: {
+    width: '100%',
+    transform: 'translate(0px, -25vh)',
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: 1,
+      transform: 'translate(0px, -0vh)',
+    },
   },
   whyChooseUsMsg: {
-    position: 'absolute',
-    top: '-4vh',
     padding: '20px',
+    position: 'relative',
+    zIndex: 1,
+    [theme.breakpoints.up('sm')]: {
+      gridColumn: 2,
+      gridRow: 1,
+    },
   },
-});
+  contactWrapper: {
+
+  },
+}));
 
 const LandingPage = (props) => {
   const classes = useStyles();
   const { history } = props;
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
+  const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
+
+  if (isDesktop) {
+    brushStroke.overlay(
+      source(
+        image('Tipsy Boca Raton/nail_polish_bottles').transformation(
+          new Transformation().resize(scale().width(400)),
+        ),
+      ),
+    );
+    thinBrushStroke.overlay(
+      source(
+        image('Tipsy Boca Raton/remove_bg_hands').transformation(
+          new Transformation().resize(scale().width(500)).rotate(byAngle(180)),
+        ),
+      )
+      .position(new Position().gravity(compass(center())).offsetY(100)),
+    );
+  }
 
   const goToBooking = () => {
     const bookUrl =
@@ -112,10 +180,6 @@ const LandingPage = (props) => {
         </CoverGirl>
       </div>
       <div id='aboutUs-container' className={classes.aboutUsContainer}>
-        <AdvancedImage
-          cldImg={brushStroke}
-          style={{ width: '100%', transform: 'translate( -6%, -16%)' }}
-        />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
           <p>
@@ -130,6 +194,9 @@ const LandingPage = (props) => {
           >
             Read More
           </Button>
+        </div>
+        <div className={classes.aboutImgWrapper}>
+          <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
         </div>
       </div>
       <div
@@ -182,7 +249,6 @@ const LandingPage = (props) => {
         </Paper>
       </div>
       <div id='whyChooseUs-container' className={classes.whyChooseUsContainer}>
-        <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} />
         <div className={classes.whyChooseUsMsg}>
           <h1>Why Choose Us?</h1>
           <p>
@@ -191,10 +257,15 @@ const LandingPage = (props) => {
             ever since the 1500s
           </p>
         </div>
+        <div className={classes.whyImgWrapper}>
+          <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} />
+        </div>
       </div>
       <Testimonials />
-      <Contact />
-      <GetInTouch />
+      <div className={classes.contactWrapper}>
+        <Contact />
+        <GetInTouch />
+      </div>
     </div>
   );
 };
