@@ -9,14 +9,15 @@ import { source } from '@cloudinary/base/actions/overlay';
 import { image } from '@cloudinary/base/qualifiers/source';
 import { scale } from '@cloudinary/base/actions/resize';
 import byAngle from '@cloudinary/base/actions/rotate/byAngle';
+import { Position } from '@cloudinary/base/qualifiers/position';
+import { compass } from '@cloudinary/base/qualifiers/gravity';
+import { center } from '@cloudinary/base/qualifiers/textAlignment';
 
 import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
 import GetInTouch from '../components/GetInTouch';
 import Testimonials from '../components/Testimonials';
-import { Position } from '@cloudinary/base/qualifiers/position';
-import { compass } from '@cloudinary/base/qualifiers/gravity';
-import { center } from '@cloudinary/base/qualifiers/textAlignment';
+
 
 const cld = new Cloudinary({
   cloud: {
