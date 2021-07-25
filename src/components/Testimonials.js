@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '0vh',
     textAlign: 'center',
+    width: '100%'
   },
 })
 

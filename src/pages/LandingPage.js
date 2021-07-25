@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, makeStyles, Paper } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
+import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
 import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
 import GetInTouch from '../components/GetInTouch';
@@ -19,14 +21,14 @@ const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
 const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
-    position: 'relative'
+    position: 'relative',
   },
   aboutUsContainer: {
     backgroundColor: 'white',
     padding: '20px',
     height: '50vh',
     overflow: 'hidden',
-    position: 'relative'
+    position: 'relative',
   },
   readMore: {
     backgroundColor: 'white',
@@ -65,17 +67,19 @@ const useStyles = makeStyles({
   },
   whyChooseUsContainer: {
     padding: '20px',
-    position: 'relative'
+    position: 'relative',
+    overflow: 'hidden',
   },
   whyChooseUsMsg: {
     position: 'absolute',
-    top: '0vh',
+    top: '-4vh',
     padding: '20px',
   },
 });
 
-export default function LandingPage() {
+const LandingPage = (props) => {
   const classes = useStyles();
+  const { history } = props;
 
   const goToBooking = () => {
     const bookUrl =
@@ -119,14 +123,18 @@ export default function LandingPage() {
             industry. Lorem Ipsum has been the industrys standard dummy text
             ever since the 1500s
           </p>
-          <Button variant='outlined' classes={{ root: classes.readMore }}>
+          <Button
+            variant='outlined'
+            classes={{ root: classes.readMore }}
+            onClick={() => history.push('/About')}
+          >
             Read More
           </Button>
         </div>
       </div>
       <div
         id='ourServices-container'
-        style={{ height: '100vh', padding: '10px' }}
+        style={{ height: 'max-content', padding: '10px' }}
       >
         <Paper classes={{ root: classes.ourServicePaper }}>
           <h1>Our Services</h1>
@@ -164,7 +172,11 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <Button variant='outlined' classes={{ root: classes.readMore }}>
+          <Button
+            variant='outlined'
+            classes={{ root: classes.readMore }}
+            onClick={() => history.push('/Service')}
+          >
             View All
           </Button>
         </Paper>
@@ -185,4 +197,12 @@ export default function LandingPage() {
       <GetInTouch />
     </div>
   );
-}
+};
+
+LandingPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(LandingPage);
