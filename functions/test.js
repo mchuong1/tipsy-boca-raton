@@ -1,6 +1,4 @@
-
 module.exports.handler = () => {
-  console.log('works')
-
-  return {statusCode: 200}
-}
+  const response = { statusCode: 200 };
+  return response;
+};

@@ -46,8 +46,8 @@ const validationSchema = yup.object({
 const GetInTouch = () => {
   const classes = useStyles();
 
-  const handleSubmit = async (values) => {
-    console.log(values);
+  const handleSubmit = async () => {
+    // console.log(values);
   };
 
   const formik = useFormik({
