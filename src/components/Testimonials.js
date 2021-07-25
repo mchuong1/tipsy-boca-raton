@@ -5,6 +5,9 @@ const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%2
 const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
 const useStyles = makeStyles({
+  root: {
+    position: 'relative'
+  },
   parallaxWhiteNailPolish: {
     backgroundImage: `url(${whiteNailPolishUrl})`,
     minHeight: '50vh',
@@ -16,7 +19,7 @@ const useStyles = makeStyles({
   },
   testimonialMsg: {
     position: 'absolute',
-    top: '325vh',
+    top: '0vh',
     textAlign: 'center',
   },
 })
@@ -26,7 +29,7 @@ const Testimonials = () => {
   const classes = useStyles();
 
   return (
-    <div id="testimonials-container">
+    <div id="testimonials-container" className={classes.root}>
       <div className={classes.parallaxWhiteNailPolish} />
       <div className={classes.testimonialMsg}>
         <h1>Testimonials</h1>

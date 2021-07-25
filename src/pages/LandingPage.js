@@ -19,11 +19,29 @@ const brushStroke = cld.image('Tipsy Boca Raton/pink_brush_stroke');
 const useStyles = makeStyles({
   aboutUs: {
     backgroundColor: 'white',
+    position: 'relative'
+  },
+  aboutUsContainer: {
+    backgroundColor: 'white',
+    padding: '20px',
+    height: '50vh',
+    overflow: 'hidden',
+    position: 'relative'
+  },
+  readMore: {
+    backgroundColor: 'white',
+    color: '#FC5C9C',
+    border: '1px solid #FC5C9C',
+  },
+  aboutUsMsg: {
+    position: 'absolute',
+    top: '10vh',
+    padding: '20px',
   },
   imgMsg: {
     padding: '0px 40px',
-    position: 'relative',
-    top: '-80vh',
+    position: 'absolute',
+    top: '18vh',
     maxWidth: '500px',
     '& h2': {
       color: 'white',
@@ -36,22 +54,6 @@ const useStyles = makeStyles({
     backgroundColor: '#FC5C9C',
     color: 'white',
   },
-  aboutUsContainer: {
-    backgroundColor: 'white',
-    padding: '20px',
-    height: '50vh',
-    overflow: 'hidden',
-  },
-  readMore: {
-    backgroundColor: 'white',
-    color: '#FC5C9C',
-    border: '1px solid #FC5C9C',
-  },
-  aboutUsMsg: {
-    position: 'absolute',
-    top: '105vh',
-    padding: '20px',
-  },
   ourServicePaper: {
     padding: '20px',
     backgroundColor: '#E5E5E5',
@@ -62,12 +64,12 @@ const useStyles = makeStyles({
     justifyContent: 'space-between',
   },
   whyChooseUsContainer: {
-    height: '50vh',
     padding: '20px',
+    position: 'relative'
   },
   whyChooseUsMsg: {
     position: 'absolute',
-    top: '265vh',
+    top: '0vh',
     padding: '20px',
   },
 });
@@ -108,7 +110,7 @@ export default function LandingPage() {
       <div id='aboutUs-container' className={classes.aboutUsContainer}>
         <AdvancedImage
           cldImg={brushStroke}
-          style={{ width: '125%', transform: 'translate( 0%, -20%)' }}
+          style={{ width: '100%', transform: 'translate( -6%, -16%)' }}
         />
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
