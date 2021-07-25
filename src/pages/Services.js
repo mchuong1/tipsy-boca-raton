@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, makeStyles } from '@material-ui/core';
 import _ from 'lodash';
-import Service from './Service';
+import Service from '../components/Service';
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +39,7 @@ const serviceMock = {
   price: '$17.99',
   description:
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+  color: 'pink'
 };
 
 const servicesMock = [
@@ -48,6 +49,7 @@ const servicesMock = [
     duration: '30m',
     price: '$17.99',
     description: 'A short description',
+    color: 'pink'
   },
 ];
 

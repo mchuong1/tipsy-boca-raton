@@ -17,13 +17,22 @@ import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
 import GetInTouch from '../components/GetInTouch';
 import Testimonials from '../components/Testimonials';
-
+import Service from '../components/Service';
 
 const cld = new Cloudinary({
   cloud: {
     cloudName: 'dgpijcm0x',
   },
 });
+
+const serviceMock = {
+  title: 'Type of Service',
+  
+  // price: '$17.99',
+  description:
+    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+  color: 'none'
+};
 
 const useStyles = makeStyles((theme) => ({
   aboutUs: {
@@ -84,10 +93,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
     backgroundColor: '#E5E5E5',
   },
-  serviceNameRow: {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
+  serviceWrapper: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex'
+    }
   },
   whyChooseUsContainer: {
     padding: '20px',
@@ -119,7 +128,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contactWrapper: {
-
+    [theme.breakpoints.up('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'auto auto',
+    },
   },
 }));
 
@@ -206,40 +218,11 @@ const LandingPage = (props) => {
       >
         <Paper classes={{ root: classes.ourServicePaper }}>
           <h1>Our Services</h1>
-          <div id='service-component'>
-            <div className={classes.serviceNameRow}>
-              <h2>Type of service</h2>
-              <h2>30m</h2>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s
-            </p>
+          <div className={classes.serviceWrapper}>
+            <Service {...serviceMock}/>
+            <Service {...serviceMock}/>
+            <Service {...serviceMock}/>
           </div>
-          <div id='service-component'>
-            <div className={classes.serviceNameRow}>
-              <h2>Type of service</h2>
-              <h2>30m</h2>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s
-            </p>
-          </div>
-          <div id='service-component'>
-            <div className={classes.serviceNameRow}>
-              <h2>Type of service</h2>
-              <h2>30m</h2>
-            </div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s
-            </p>
-          </div>
-
           <Button
             variant='outlined'
             classes={{ root: classes.readMore }}

@@ -34,6 +34,12 @@ const useStyles = makeStyles({
 const Service = (props) => {
   const { title, duration, price, description, color, } = props;
   const classes = useStyles();
+  let bg;
+  switch (color) {
+    case 'blue': bg = { backgroundColor: '#C5E3F6' }; break;
+    case 'pink': bg = { backgroundColor: '#FCEFEE' }; break;
+    default:  bg = { backgroundColor: 'white' };
+  }
 
   return (
     <div id='service-component' className={classes.root}>
@@ -43,7 +49,7 @@ const Service = (props) => {
       </div>
       <div>{price}</div>
       <p>{description}</p>
-      <div className={classes.circle} style={{backgroundColor: color === 'blue' ? '#C5E3F6' : '#FCEFEE'}}/>
+      <div className={classes.circle} style={bg}/>
     </div>
   );
 };
@@ -57,7 +63,7 @@ Service.propTypes = {
 };
 
 Service.defaultProps = {
-  color: 'pink'
+  color: 'none'
 }
 
 export default Service;
