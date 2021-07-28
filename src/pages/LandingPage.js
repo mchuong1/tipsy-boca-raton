@@ -12,6 +12,7 @@ import byAngle from '@cloudinary/base/actions/rotate/byAngle';
 import { Position } from '@cloudinary/base/qualifiers/position';
 import { compass } from '@cloudinary/base/qualifiers/gravity';
 import { center } from '@cloudinary/base/qualifiers/textAlignment';
+import _ from 'lodash'
 
 import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
@@ -24,15 +25,23 @@ const cld = new Cloudinary({
     cloudName: 'dgpijcm0x',
   },
 });
-
-const serviceMock = {
-  title: 'Type of Service',
-  
-  // price: '$17.99',
-  description:
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-  color: 'none'
-};
+const servicesMock = [
+  {
+    title: 'Basic Manicure',
+    description: 'Trim, shape nails, groom cuticles, massage hands with lotion and regular polish',
+    color: 'pink'
+  },
+  {
+    title: 'Deluxe Manicure',
+    description: ' Basic manicure, extra massage plus hands exfoliating sugar scrub with your choice   (Lavender ,lemon or cucumber) plus paraffin treatment and hot towel.',
+    color: 'pink'
+  },
+  {
+    title: 'Gel Manicure',
+    description: 'Basic Manicure and finish with gel polish.',
+    color: 'pink'
+  },
+];
 
 const useStyles = makeStyles((theme) => ({
   aboutUs: {
@@ -219,9 +228,7 @@ const LandingPage = (props) => {
         <Paper classes={{ root: classes.ourServicePaper }}>
           <h1>Our Services</h1>
           <div className={classes.serviceWrapper}>
-            <Service {...serviceMock}/>
-            <Service {...serviceMock}/>
-            <Service {...serviceMock}/>
+          {_.map(servicesMock, (service) => <Service {...service} color="none"/>)}
           </div>
           <Button
             variant='outlined'
