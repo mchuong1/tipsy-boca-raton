@@ -6,6 +6,7 @@ const useStyles = makeStyles({
   root: {
     position: 'relative',
     marginBottom: '60px',
+    height: '132px'
   },
   serviceNameRow: {
     width: '100%',
@@ -21,13 +22,13 @@ const useStyles = makeStyles({
   },
   circle: {
     borderRadius: '50%',
-    height: '200px',
-    width: '200px',
+    height: '150px',
+    width: '150px',
     backgroundColor: '#FCEFEE',
     position: 'absolute',
     zIndex: '-1',
-    top: '1em',
-    left: '-7em',
+    top: '24px',
+    left: '-4em',
   },
 });
 
@@ -38,7 +39,7 @@ const Service = (props) => {
   switch (color) {
     case 'blue': bg = { backgroundColor: '#C5E3F6' }; break;
     case 'pink': bg = { backgroundColor: '#FCEFEE' }; break;
-    default:  bg = { backgroundColor: 'white' };
+    default:  bg = { backgroundColor: 'white'};
   }
 
   return (

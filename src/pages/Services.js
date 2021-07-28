@@ -3,7 +3,7 @@ import { Divider, makeStyles } from '@material-ui/core';
 import _ from 'lodash';
 import Service from '../components/Service';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '20px',
   },
@@ -31,7 +31,15 @@ const useStyles = makeStyles({
     width: '150px',
     backgroundColor: '#FCEFEE',
   },
-});
+  container: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gridColumnGap: '10em',
+      padding: '4em',
+    }
+  },
+}));
 
 const servicesMock = [
   {
@@ -62,11 +70,6 @@ const pedicureMock = [
     color: 'blue'
   },
   {
-    title: 'Add Callus Remove',
-    price: '$5',
-    color: 'blue'
-  },
-  {
     title: 'Signature Pedicure',
     price: '$45',
     description: 'An extension of our basic pedicure. This includes a callus removed treatment for your      feet and your choice of an exfoliating sugar scrub (lavender, lemon or cucumber) that removes  dead skin, followed by extended foot and leg massage with cooling gel. (Special neck wrap relaxation).',
@@ -85,10 +88,15 @@ const pedicureMock = [
     color: 'blue'
   },
   {
-    title: 'All Pedicure (Add Gel Polish',
+    title: 'All Pedicure (Add Gel Polish)',
     price: '$15',
-    color: 'blue'
-  }
+    // color: 'blue'
+  },
+  {
+    title: 'Add Callus Remove',
+    price: '$5',
+    // color: 'blue'
+  },
 ];
 
 const nailEnhancementMock = [
@@ -271,17 +279,45 @@ const waxingMock = [
 const Services = () => {
   const classes = useStyles();
 
+  const renderService = (services) => 
+    _.map(services, service => _.get(service, 'description') ? <Service {...service}/> 
+    : (<div className={classes.serviceNameRow}>
+        <h2>{_.get(service, 'title')}</h2>
+        <div>{_.get(service, 'price')}</div>
+      </div>)
+  );
+
+
   return (
     <div className={classes.root}>
       <h1 style={{ marginBottom: 0 }}>Our Services</h1>
       <Divider classes={{ root: classes.divider }} />
-      {_.map(servicesMock, (service) => <Service {...service}/>)}
-      {_.map(pedicureMock, (service) => <Service {...service}/>)}
-      {_.map(nailEnhancementMock, (service) => <Service {...service}/>)}
-      {_.map(additionalServicesMock, (service) => <Service {...service}/>)}
-      {_.map(kidsMenuMock, (service) => <Service {...service}/>)}
-      {_.map(waxingMock, (service) => <Service {...service}/>)}
-      
+      <div className={classes.container}>
+          <div>
+            <h1>Manicure</h1>
+            {renderService(servicesMock)}
+          </div>
+          <div>
+            <h1>Pedicure</h1>
+            {renderService(pedicureMock)}
+          </div>
+          <div>
+            <h1>Nail Enhancement</h1>
+            {renderService(nailEnhancementMock)}
+          </div>
+          <div>
+            <h1>Additional Services</h1>
+            {renderService(additionalServicesMock)}
+          </div>
+          <div>
+            <h1>Kids Menu</h1>
+            {renderService(kidsMenuMock)}
+          </div>
+          <div>
+            <h1>Waxing</h1>
+            {renderService(waxingMock)}
+          </div>
+      </div>
     </div>
   );
 };
