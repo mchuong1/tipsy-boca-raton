@@ -177,11 +177,11 @@ const LandingPage = (props) => {
               Lorem Ipsum is simply a dummy text of the printing and typesetting
               industry.
             </h2>
-            <p>
+            {isDesktop && (<p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industrys standard dummy text
               ever since the 1500s
-            </p>
+            </p>)}
             <Button
               variant='contained'
               classes={{ root: classes.bookNow }}
@@ -192,7 +192,7 @@ const LandingPage = (props) => {
           </div>
         </CoverGirl>
       </div>
-      {/* <div id='aboutUs-container' className={classes.aboutUsContainer}>
+      <div id='aboutUs-container' className={classes.aboutUsContainer}>
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
           <p>
@@ -212,7 +212,7 @@ const LandingPage = (props) => {
           <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
         </div>
       </div>
-      <div
+      {/* <div
         id='ourServices-container'
         style={{ height: 'max-content', padding: '10px' }}
       >
