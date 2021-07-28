@@ -192,7 +192,7 @@ const LandingPage = (props) => {
           </div>
         </CoverGirl>
       </div>
-      <div id='aboutUs-container' className={classes.aboutUsContainer}>
+      {/* <div id='aboutUs-container' className={classes.aboutUsContainer}>
         <div className={classes.aboutUsMsg}>
           <h1>About Us</h1>
           <p>
@@ -249,7 +249,7 @@ const LandingPage = (props) => {
       <div className={classes.contactWrapper}>
         <Contact />
         <GetInTouch />
-      </div>
+      </div> */}
     </div>
   );
 };
