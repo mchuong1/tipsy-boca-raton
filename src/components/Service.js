@@ -45,10 +45,10 @@ const Service = (props) => {
     <div id='service-component' className={classes.root}>
       <div className={classes.serviceNameRow}>
         <h2>{title}</h2>
-        <div>{duration}</div>
+        <div>{price}</div>
       </div>
-      <div>{price}</div>
-      <p>{description}</p>
+      <div>{duration}</div>
+      {description && (<p>{description}</p>)}
       <div className={classes.circle} style={bg}/>
     </div>
   );
