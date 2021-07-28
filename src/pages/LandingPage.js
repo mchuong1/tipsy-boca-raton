@@ -212,7 +212,7 @@ const LandingPage = (props) => {
           <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
         </div>
       </div>
-      {/* <div
+      <div
         id='ourServices-container'
         style={{ height: 'max-content', padding: '10px' }}
       >
@@ -249,7 +249,7 @@ const LandingPage = (props) => {
       <div className={classes.contactWrapper}>
         <Contact />
         <GetInTouch />
-      </div> */}
+      </div>
     </div>
   );
 };
