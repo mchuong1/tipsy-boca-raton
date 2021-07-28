@@ -1,38 +1,40 @@
 {
   "env": {
-      "browser": true,
-      "es2021": true,
-      "jest": true
+    "browser": true,
+    "es2021": true,
+    "jest": true
   },
   "extends": [
-      "airbnb",
-      "prettier"
+    "airbnb",
+    "prettier"
   ],
   "parserOptions": {
-      "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 12
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
   },
   "plugins": [
-      "react",
-      "prettier"
+    "react",
+    "prettier"
   ],
   "rules": {
-  "no-unused-vars": "error",
-      "react/button-has-type": 0,
-      "import/prefer-default-export": 0,
-      "react/jsx-props-no-spreading": 0,
-      "react/jsx-filename-extension": [1, {
-          "extensions": [".js", ".jsx"]
-      }]
+"no-unused-vars": "error",
+  "react/button-has-type": 0,
+  "import/prefer-default-export": 0,
+  "react/jsx-props-no-spreading": 0,
+  "react/jsx-filename-extension": [1, {
+    "extensions": [".js", ".jsx"]
+  }],
+  "no-console": 0
   },
   "overrides": [
-      {
-          "files": ["webpack.*.js", "setupTests.js"],
-          "rules": {
-              "import/no-extraneous-dependencies": 0
-          }
+    {
+      "files": ["webpack.*.js", "setupTests.js"],
+      "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "no-console": 0
       }
+    }
   ]
 }

@@ -25,6 +25,15 @@ const useStyles = makeStyles({
       backgroundColor: 'white',
     },
   },
+  datePicker: {
+    width: '100%',
+    marginBottom: '20px',
+    '& div': {
+      backgroundColor: 'white',
+      borderRadius: '4px',
+      padding: '5px 10px',
+    },
+  },
   primary: {
     backgroundColor: '#FC5C9C',
     color: 'white',
@@ -52,13 +61,16 @@ const validationSchema = yup.object({
     .string('Enter your Email.')
     .email('Email must be a valid Email')
     .required('Email is required.'),
-  message: yup.string('Enter your Message.').required('Message is required.'),
+  date: yup
+    .date('Enter your Date.')
+    .required('Date is required.'),
 });
 
 const Newsletter = () => {
   const classes = useStyles();
 
   const handleSubmit = async (values) => {
+    console.log('works');
     console.log(values);
   };
 
@@ -68,7 +80,7 @@ const Newsletter = () => {
       lastName: '',
       phoneNumber: '',
       email: '',
-      message: '',
+      date: '',
     },
     validationSchema,
     onSubmit: (values) => handleSubmit(values),
@@ -81,7 +93,7 @@ const Newsletter = () => {
           <h1 style={{ marginBottom: 0 }}>Newsletter</h1>
           <Divider classes={{ root: classes.divider }} />
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <TextField
               classes={{ root: classes.input }}
               variant='outlined'
@@ -135,6 +147,19 @@ const Newsletter = () => {
               onChange={formik.handleChange}
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
+            />
+            <TextField
+              id="date"
+              label="Birthday"
+              type="date"
+              value={formik.values.date}
+              classes={{ root: classes.datePicker }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              onChange={formik.handleChange}
+              error={formik.touched.date && Boolean(formik.errors.date)}
+              helperText={formik.touched.date && formik.errors.date}
             />
             <Button
               variant='contained'
