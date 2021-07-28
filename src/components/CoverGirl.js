@@ -6,7 +6,7 @@ const cloudinaryUrl =
   'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%20Boca%20Raton';
 const coverGirlUrl = `${cloudinaryUrl}/cover_girl`;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( (theme) => ({
   imageContainer: {
     position: 'relative',
     top: 0,
@@ -19,13 +19,15 @@ const useStyles = makeStyles({
   parallaxCoverGirl: {
     backgroundImage: `url(${coverGirlUrl})`,
     minHeight: '100vh',
-    backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     opacity: '0.6',
+    [theme.breakpoints.up('sm')]: {
+      backgroundAttachment: 'fixed',
+    },
   },
-});
+}));
 
 const CoverGirl = ({ children }) => {
   const classes = useStyles();
