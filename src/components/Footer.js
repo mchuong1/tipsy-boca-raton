@@ -16,22 +16,28 @@ const useStyles = makeStyles({
   },
   socialBar: {
     display: 'flex',
-    width: '24vw',
+    width: '250px',
     placeContent: 'space-evenly',
+  },
+  socialIcon: {
+    cursor: 'pointer'
   }
 });
 
 const Footer = () => {
 
   const classes = useStyles();
+  const goToSocial = (url) => {
+    window.open(url, '_blank').focus();
+  }
 
   return (
     <div id='footer' className={classes.footer}>
       <div className={classes.socialBar}>
-        <FacebookIcon />
-        <InstagramIcon />
-        <PhoneIcon />
-        <MailIcon />
+        <FacebookIcon classes={{root: classes.socialIcon}}  onClick={() => goToSocial('https://www.facebook.com/tipsysalonbarboca/')}/>
+        <InstagramIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('https://www.instagram.com/tipsybocaraton/?hl=en')}/>
+        <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.419.7911')}/>
+        <MailIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('mailto:tipsynailbarboca@gmail.com')}/>
       </div>
       <span>Copyright 2021 TIPSY SALON BAR | All Rights Reserved</span>
       <span>Web Development by: Matthew Chuong</span>
