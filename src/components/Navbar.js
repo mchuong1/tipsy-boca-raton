@@ -4,6 +4,8 @@ import {
   AppBar,
   Toolbar,
   IconButton,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import { Cloudinary } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
@@ -49,11 +51,26 @@ const useStyles = makeStyles({
       backgroundColor: 'lightgrey',
     },
   },
+  menuRowItems: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    width: '50%',
+    alignItems: 'center',
+    '& span': {
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      '&:hover': {
+        color: 'grey',
+      }
+    }
+  }
 });
 
 const Navbar = (props) => {
   const classes = useStyles();
   const { history } = props;
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
   const [open, setOpen] = useState(false);
   const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo');
   const tipsyLogoWhite = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
@@ -64,6 +81,10 @@ const Navbar = (props) => {
 
   const handleNavClick = (route) => {
     handleClick();
+    history.push(route);
+  };
+
+  const handleMenuClick = (route) => {
     history.push(route);
   };
 
@@ -91,14 +112,26 @@ const Navbar = (props) => {
       <AppBar classes={{ root: classes.appBar }} position='sticky'>
         <Toolbar classes={{ root: classes.toolBar }}>
           <AdvancedImage style={{ width: '100px', cursor: 'pointer' }} cldImg={tipsyLogoWhite} onClick={() => history.push('/')}/>
-          <IconButton
-            edge='start'
-            color='inherit'
-            aria-label='menu'
-            onClick={handleClick}
-          >
-            <MenuIcon />
-          </IconButton>
+          {
+            isDesktop 
+            ? (<div className={classes.menuRowItems}>
+                <span onClick={() => handleMenuClick('/')} aria-hidden="true">Home</span>
+                <span onClick={() => handleMenuClick('/About')} aria-hidden="true">About</span>
+                <span onClick={() => handleMenuClick('/Service')} aria-hidden="true">Service</span>
+                <span onClick={() => handleMenuClick('/OnlineBooking')} aria-hidden="true">Online Booking</span>
+                <span onClick={() => handleMenuClick('/Newsletter')} aria-hidden="true">Newsletter</span>
+              </div>)
+            : (
+              <IconButton
+              edge='start'
+              color='inherit'
+              aria-label='menu'
+              onClick={handleClick}
+            >
+              <MenuIcon />
+            </IconButton>
+            )
+          }
         </Toolbar>
       </AppBar>
     </>
