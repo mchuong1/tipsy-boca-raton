@@ -6,7 +6,7 @@ const useStyles = makeStyles({
   root: {
     position: 'relative',
     marginBottom: '60px',
-    height: '132px'
+    height: '138px'
   },
   serviceNameRow: {
     width: '100%',
