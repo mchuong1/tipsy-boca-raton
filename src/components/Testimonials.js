@@ -4,18 +4,20 @@ import { makeStyles } from '@material-ui/core';
 const cloudinaryUrl = 'https://res.cloudinary.com/dgpijcm0x/image/upload/Tipsy%20Boca%20Raton';
 const whiteNailPolishUrl = `${cloudinaryUrl}/white_nail_polish`;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative'
   },
   parallaxWhiteNailPolish: {
     backgroundImage: `url(${whiteNailPolishUrl})`,
     minHeight: '50vh',
-    backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    opacity: '0.6'
+    opacity: '0.6',
+    [theme.breakpoints.up('sm')]: {
+      backgroundAttachment: 'fixed',
+    },
   },
   testimonialMsg: {
     position: 'absolute',
@@ -23,7 +25,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
     width: '100%'
   },
-})
+}));
 
 const Testimonials = () => {
 
