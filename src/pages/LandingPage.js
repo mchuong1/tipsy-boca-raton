@@ -264,7 +264,7 @@ const LandingPage = (props) => {
         </div>
       </div>
       </Fade>
-      <Fade delay={600}>
+      <Fade bottom delay={600}>
         <Testimonials />
       </Fade>
       <div className={classes.contactWrapper}>
