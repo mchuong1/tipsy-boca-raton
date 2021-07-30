@@ -20,7 +20,7 @@ const cld = new Cloudinary({
   },
 });
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: 'black',
     opacity: '90%',
@@ -34,8 +34,29 @@ const useStyles = makeStyles({
     backgroundColor: '#FCEFEE',
     height: '100vh',
     zIndex: 100,
-    position: 'sticky',
+    position: 'fixed',
+    width: '100%',
     top: 0,
+    transform: 'translateX(-200%)',
+    transition: 'transform .2s ease-in-out',
+  },
+  enter: {
+    animation: `$myEffect 1000ms ${theme.transitions.easing.easeInOut}`,
+    transform: 'translateX(0%)',
+  },
+  exit: {
+    animation: `$myEffectExit 1000ms ${theme.transitions.easing.easeInOut}`,
+  },
+  navMenuExit: {
+    opacity: '0',
+    backgroundColor: '#FCEFEE',
+    height: '100vh',
+    zIndex: 100,
+    position: 'fixed',
+    width: '100%',
+    transform: 'translateX(-200%)',
+    transition: 'all .2s ease-in-out',
+    animation: `$myEffectExit 1000ms ${theme.transitions.easing.easeInOut}`,
   },
   iconRow: {
     display: 'flex',
@@ -61,22 +82,64 @@ const useStyles = makeStyles({
       fontWeight: 'bold',
       '&:hover': {
         color: 'grey',
-      }
-    }
-  }
-});
+      },
+    },
+  },
+  animatedItem: {
+    animation: `$myEffect 1000ms ${theme.transitions.easing.easeInOut}`,
+    opacity: 1,
+  },
+  animatedItemExiting: {
+    animation: `$myEffectExit 1000ms ${theme.transitions.easing.easeInOut}`,
+    opacity: 0,
+    transform: 'translateX(-200%)',
+  },
+  '@keyframes myEffect': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-200%)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+  },
+  '@keyframes myEffectExit': {
+    '0%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+    '100%': {
+      opacity: 0,
+      transform: 'translateX(-200%)',
+    },
+  },
+}));
 
 const Navbar = (props) => {
   const classes = useStyles();
   const { history } = props;
   const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
-  const [open, setOpen] = useState(false);
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  const [open, setOpen] = useState(true);
   const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo');
   const tipsyLogoWhite = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
 
-  const handleClick = () => {
-    setOpen((prev) => !prev);
+  const handleMenu = (prev) => {
+    const nav = document.getElementById('navMenu');
+    if(prev) {
+      console.log('enter')
+      nav.classList.add(classes.enter);
+    } else {
+      console.log('exit')
+      nav.classList.add(classes.exit);
+      nav.classList.remove(classes.enter);
+    }
+  };
+
+  const handleClick = async () => {
+    await setOpen((prev) => !prev)
+    handleMenu(open)
   };
 
   const handleNavClick = (route) => {
@@ -89,29 +152,47 @@ const Navbar = (props) => {
   };
 
   const Navmenu = () => (
-    <div className={classes.navMenu}>
+    <div
+      id="navMenu"
+      className={`${classes.navMenu}`}
+    >
       <div className={classes.iconRow}>
-        <AdvancedImage cldImg={tipsyLogo} style={{ width: '50%' }}/>
+        <AdvancedImage cldImg={tipsyLogo} style={{ width: '100px' }} />
         <IconButton edge='start' onClick={handleClick}>
           <ChevronLeftIcon style={{ fontSize: '2em' }} />
         </IconButton>
       </div>
       <div className={classes.menuItems}>
-        <h2 onClick={() => handleNavClick('/')} aria-hidden="true">Home</h2>
-        <h2 onClick={() => handleNavClick('/About')} aria-hidden="true">About Us</h2>
-        <h2 onClick={() => handleNavClick('/Service')} aria-hidden="true">Services</h2>
-        <h2 onClick={() => handleNavClick('/OnlineBooking')} aria-hidden="true">Online Booking</h2>
-        <h2 onClick={() => handleNavClick('/Newsletter')} aria-hidden="true">Newsletter</h2>
+        <h2 onClick={() => handleNavClick('/')} aria-hidden='true'>
+          Home
+        </h2>
+        <h2 onClick={() => handleNavClick('/About')} aria-hidden='true'>
+          About Us
+        </h2>
+        <h2 onClick={() => handleNavClick('/Service')} aria-hidden='true'>
+          Services
+        </h2>
+        <h2 onClick={() => handleNavClick('/OnlineBooking')} aria-hidden='true'>
+          Online Booking
+        </h2>
+        <h2 onClick={() => handleNavClick('/Newsletter')} aria-hidden='true'>
+          Newsletter
+        </h2>
       </div>
     </div>
   );
 
   return (
     <>
-      {open && <Navmenu />}
+      {/* <DrawerMenu /> */}
+      <Navmenu />
       <AppBar classes={{ root: classes.appBar }} position='sticky'>
         <Toolbar classes={{ root: classes.toolBar }}>
-          <AdvancedImage style={{ width: '100px', cursor: 'pointer' }} cldImg={tipsyLogoWhite} onClick={() => history.push('/')}/>
+          <AdvancedImage
+            style={{ width: '100px', cursor: 'pointer' }}
+            cldImg={tipsyLogoWhite}
+            onClick={() => history.push('/')}
+          />
           {
             isDesktop 
             ? (<div className={classes.menuRowItems}>
