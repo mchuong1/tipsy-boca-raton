@@ -12,7 +12,8 @@ import byAngle from '@cloudinary/base/actions/rotate/byAngle';
 import { Position } from '@cloudinary/base/qualifiers/position';
 import { compass } from '@cloudinary/base/qualifiers/gravity';
 import { center } from '@cloudinary/base/qualifiers/textAlignment';
-import _ from 'lodash'
+import _ from 'lodash';
+import { Fade } from 'react-reveal';
 
 import CoverGirl from '../components/CoverGirl';
 import Contact from '../components/Contact';
@@ -28,18 +29,20 @@ const cld = new Cloudinary({
 const servicesMock = [
   {
     title: 'Basic Manicure',
-    description: 'Trim, shape nails, groom cuticles, massage hands with lotion and regular polish',
-    color: 'pink'
+    description:
+      'Trim, shape nails, groom cuticles, massage hands with lotion and regular polish',
+    color: 'pink',
   },
   {
     title: 'Deluxe Manicure',
-    description: ' Basic manicure, extra massage plus hands exfoliating sugar scrub with your choice   (Lavender ,lemon or cucumber) plus paraffin treatment and hot towel.',
-    color: 'pink'
+    description:
+      ' Basic manicure, extra massage plus hands exfoliating sugar scrub with your choice   (Lavender ,lemon or cucumber) plus paraffin treatment and hot towel.',
+    color: 'pink',
   },
   {
     title: 'Gel Manicure',
     description: 'Basic Manicure and finish with gel polish.',
-    color: 'pink'
+    color: 'pink',
   },
 ];
 
@@ -104,8 +107,8 @@ const useStyles = makeStyles((theme) => ({
   },
   serviceWrapper: {
     [theme.breakpoints.up('sm')]: {
-      display: 'flex'
-    }
+      display: 'flex',
+    },
   },
   whyChooseUsContainer: {
     padding: '20px',
@@ -166,8 +169,7 @@ const LandingPage = (props) => {
         image('Tipsy Boca Raton/remove_bg_hands').transformation(
           new Transformation().resize(scale().width(500)).rotate(byAngle(180)),
         ),
-      )
-      .position(new Position().gravity(compass(center())).offsetY(100)),
+      ).position(new Position().gravity(compass(center())).offsetY(100)),
     );
   }
 
@@ -186,11 +188,13 @@ const LandingPage = (props) => {
               Lorem Ipsum is simply a dummy text of the printing and typesetting
               industry.
             </h2>
-            {isDesktop && (<p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s
-            </p>)}
+            {isDesktop && (
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy text
+                ever since the 1500s
+              </p>
+            )}
             <Button
               variant='contained'
               classes={{ root: classes.bookNow }}
@@ -201,44 +205,51 @@ const LandingPage = (props) => {
           </div>
         </CoverGirl>
       </div>
-      <div id='aboutUs-container' className={classes.aboutUsContainer}>
-        <div className={classes.aboutUsMsg}>
-          <h1>About Us</h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            ever since the 1500s
-          </p>
-          <Button
-            variant='outlined'
-            classes={{ root: classes.readMore }}
-            onClick={() => history.push('/About')}
-          >
-            Read More
-          </Button>
-        </div>
-        <div className={classes.aboutImgWrapper}>
-          <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
-        </div>
-      </div>
-      <div
-        id='ourServices-container'
-        style={{ height: 'max-content', padding: '10px' }}
-      >
-        <Paper classes={{ root: classes.ourServicePaper }}>
-          <h1>Our Services</h1>
-          <div className={classes.serviceWrapper}>
-          {_.map(servicesMock, (service) => <Service {...service} color="none"/>)}
+      <Fade bottom>
+        <div id='aboutUs-container' className={classes.aboutUsContainer}>
+          <div className={classes.aboutUsMsg}>
+            <h1>About Us</h1>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industrys standard dummy text
+              ever since the 1500s
+            </p>
+            <Button
+              variant='outlined'
+              classes={{ root: classes.readMore }}
+              onClick={() => history.push('/About')}
+            >
+              Read More
+            </Button>
           </div>
-          <Button
-            variant='outlined'
-            classes={{ root: classes.readMore }}
-            onClick={() => history.push('/Service')}
-          >
-            View All
-          </Button>
-        </Paper>
-      </div>
+          <div className={classes.aboutImgWrapper}>
+            <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
+          </div>
+        </div>
+      </Fade>
+      <Fade bottom delay={600}>
+        <div
+          id='ourServices-container'
+          style={{ height: 'max-content', padding: '10px' }}
+        >
+          <Paper classes={{ root: classes.ourServicePaper }}>
+            <h1>Our Services</h1>
+            <div className={classes.serviceWrapper}>
+              {_.map(servicesMock, (service) => (
+                <Service {...service} color='none' />
+              ))}
+            </div>
+            <Button
+              variant='outlined'
+              classes={{ root: classes.readMore }}
+              onClick={() => history.push('/Service')}
+            >
+              View All
+            </Button>
+          </Paper>
+        </div>
+      </Fade>
+      <Fade bottom delay={600}>
       <div id='whyChooseUs-container' className={classes.whyChooseUsContainer}>
         <div className={classes.whyChooseUsMsg}>
           <h1>Why Choose Us?</h1>
@@ -252,7 +263,10 @@ const LandingPage = (props) => {
           <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} />
         </div>
       </div>
-      <Testimonials />
+      </Fade>
+      <Fade delay={600}>
+        <Testimonials />
+      </Fade>
       <div className={classes.contactWrapper}>
         <Contact />
         <GetInTouch />
