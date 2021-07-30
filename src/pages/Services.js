@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#FCEFEE',
   },
   container: {
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
       gridColumnGap: '10em',
