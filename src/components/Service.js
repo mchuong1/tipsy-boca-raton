@@ -57,14 +57,17 @@ const Service = (props) => {
 
 Service.propTypes = {
   title: PropTypes.string.isRequired,
-  duration: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  duration: PropTypes.string,
+  price: PropTypes.string,
+  description: PropTypes.string,
   color: PropTypes.string
 };
 
 Service.defaultProps = {
-  color: 'none'
+  color: 'none',
+  duration: '',
+  price: '',
+  description: '',
 }
 
 export default Service;

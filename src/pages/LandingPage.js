@@ -235,8 +235,8 @@ const LandingPage = (props) => {
           <Paper classes={{ root: classes.ourServicePaper }}>
             <h1>Our Services</h1>
             <div className={classes.serviceWrapper}>
-              {_.map(servicesMock, (service) => (
-                <Service {...service} color='none' />
+              {_.map(servicesMock, (service, i) => (
+                <Service key={i} {...service} color='none' />
               ))}
             </div>
             <Button

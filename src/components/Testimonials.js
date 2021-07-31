@@ -57,7 +57,7 @@ const Testimonials = () => {
       <div className={classes.testimonialMsg}>
         <h1>Testimonials</h1>
         <Carousel classes={{root: classes.carousel, indicators: classes.indicator}}>
-          {items.map((item) => (<div>{item.description}</div>))}
+          {items.map((item, i) => (<div key={i}>{item.description}</div>))}
         </Carousel>
       </div>
     </div>

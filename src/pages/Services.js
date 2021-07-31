@@ -280,8 +280,8 @@ const Services = () => {
   const classes = useStyles();
 
   const renderService = (services) => 
-    _.map(services, service => _.get(service, 'description') ? <Service {...service}/> 
-    : (<div className={classes.serviceNameRow}>
+    _.map(services, (service, i) => _.get(service, 'description') ? <Service key={i} {...service}/> 
+    : (<div key={i} className={classes.serviceNameRow}>
         <h2>{_.get(service, 'title')}</h2>
         <div>{_.get(service, 'price')}</div>
       </div>)
