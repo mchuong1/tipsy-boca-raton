@@ -122,8 +122,8 @@ const Navbar = (props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [open, setOpen] = useState(true);
-  const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Logo');
-  const tipsyLogoWhite = cld.image('Tipsy Boca Raton/Tipsy_Logo_White');
+  const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Nailbar_Logo');
+  const tipsyLogoWhite = cld.image('Tipsy Boca Raton/Tipsy_Nailbar_Logo_White');
 
   const handleMenu = (prev) => {
     const nav = document.getElementById('navMenu');

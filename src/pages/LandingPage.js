@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
   contactWrapper: {
     [theme.breakpoints.up('sm')]: {
       display: 'grid',
-      gridTemplateColumns: 'auto auto',
+      gridTemplateColumns: '1fr 1fr',
     },
   },
 }));
