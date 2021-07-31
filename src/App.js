@@ -8,11 +8,13 @@ import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import OnlineBooking from './pages/OnlineBooking';
 import Newsletter from './pages/Newsletter';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div data-test="component-app">
       <Switch>
+        <ScrollToTop />
         <Navbar />
         <Route exact path="/" component={LandingPage} />
         <Route path="/About" component={AboutUs} />

@@ -128,10 +128,8 @@ const Navbar = (props) => {
   const handleMenu = (prev) => {
     const nav = document.getElementById('navMenu');
     if(prev) {
-      console.log('enter')
       nav.classList.add(classes.enter);
     } else {
-      console.log('exit')
       nav.classList.add(classes.exit);
       nav.classList.remove(classes.enter);
     }
