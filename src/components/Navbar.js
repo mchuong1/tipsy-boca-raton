@@ -155,7 +155,7 @@ const Navbar = (props) => {
       className={`${classes.navMenu}`}
     >
       <div className={classes.iconRow}>
-        <AdvancedImage cldImg={tipsyLogo} style={{ width: '30%' }} />
+        <AdvancedImage cldImg={tipsyLogo} style={{ maxHeight: '100px' }} />
         <IconButton edge='start' onClick={handleClick}>
           <ChevronLeftIcon style={{ fontSize: '2em' }} />
         </IconButton>
