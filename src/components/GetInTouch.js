@@ -1,7 +1,8 @@
 import React from 'react';
-import { makeStyles, TextField, Paper, Button } from '@material-ui/core';
+import { makeStyles, TextField, Paper, Button, Snackbar, IconButton } from '@material-ui/core';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import CloseIcon from '@material-ui/icons/Close';
 import { sendGetInTouchEmail } from '../service/emailService';
 
 const useStyles = makeStyles({
@@ -46,11 +47,27 @@ const validationSchema = yup.object({
 
 const GetInTouch = () => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const [hasError, setError] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleSubmit = async (values) => {
-    console.log('works');
-    console.log(values);
-    sendGetInTouchEmail(values);
+    setError(false);
+    try{
+      await sendGetInTouchEmail(values);
+      setOpen(true);
+    }
+    catch(error){
+      setError(true);
+      console.log(error);
+    }
   };
 
   const formik = useFormik({
@@ -147,6 +164,23 @@ const GetInTouch = () => {
           </Button>
         </form>
       </Paper>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={open}
+        autoHideDuration={10000}
+        onClose={handleClose}
+        message={!hasError ? "Email Sent Successfully!" : "Something went wrong :( Please contact Tipsy Nailbar Boca Raton."}
+        action={
+          <>
+            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+              <CloseIcon fontSize="small" />
+            </IconButton>
+          </>
+        }
+      />
     </div>
   );
 };
