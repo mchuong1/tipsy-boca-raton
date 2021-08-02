@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles, TextField, Paper, Button } from '@material-ui/core';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { sendGetInTouchEmail } from '../service/emailService';
 
 const useStyles = makeStyles({
   root: {
@@ -49,6 +50,7 @@ const GetInTouch = () => {
   const handleSubmit = async (values) => {
     console.log('works');
     console.log(values);
+    sendGetInTouchEmail(values);
   };
 
   const formik = useFormik({
