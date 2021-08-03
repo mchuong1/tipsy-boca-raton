@@ -21,6 +21,10 @@ const useStyles = makeStyles({
   },
   socialIcon: {
     cursor: 'pointer'
+  },
+  link: {
+    cursor: 'pointer',
+    color: 'blue'
   }
 });
 
@@ -39,8 +43,8 @@ const Footer = () => {
         <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.419.7911')}/>
         <MailIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('mailto:tipsynailbarboca@gmail.com')}/>
       </div>
-      <span>Copyright 2021 TIPSY SALON BAR | All Rights Reserved</span>
-      <span>Web Development by: Matthew Chuong</span>
+      <span>Copyright &copy; 2021 TIPSY SALON BAR | All Rights Reserved</span>
+      <span>Web Development by: <span className={classes.link} aria-hidden='true' onClick={() => goToSocial('https://mattchu-portfolio.netlify.app/')}>Matthew Chuong</span></span>
     </div>
   );
 };
