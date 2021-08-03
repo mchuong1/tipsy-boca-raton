@@ -7,8 +7,8 @@ module.exports.handler = async (event,) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
   const {firstName, lastName, message, email, phoneNumber} = JSON.parse(event.body)
   const msg = {
-    to: 'mchuong1993@gmail.com', // Change to your recipient
-    from: 'jdoe02602@gmail.com', // Change to your verified sender
+    to: 'tipsynailbarboca@gmail.com', // Change to your recipient
+    from: 'tipsynail@tipsynailbarboca.com', // Change to your verified sender
     subject: `Get in Touch: ${firstName} ${lastName}`,
     text: `${message} - Reply back to ${email} or ${phoneNumber}`
   }
@@ -19,6 +19,10 @@ module.exports.handler = async (event,) => {
     })
     .catch((error) => {
       console.error(error)
+      return {
+        status: 500,
+        body: error
+      }
     })
     return {
       statusCode: 200,

@@ -34,7 +34,7 @@ const Footer = () => {
   return (
     <div id='footer' className={classes.footer}>
       <div className={classes.socialBar}>
-        <FacebookIcon classes={{root: classes.socialIcon}}  onClick={() => goToSocial('https://www.facebook.com/tipsysalonbarboca/')}/>
+        <FacebookIcon classes={{root: classes.socialIcon}}  onClick={() => goToSocial('https://www.facebook.com/Tipsy-Nailbar-Boca-105414531836108')}/>
         <InstagramIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('https://www.instagram.com/tipsybocaraton/?hl=en')}/>
         <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.419.7911')}/>
         <MailIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('mailto:tipsynailbarboca@gmail.com')}/>
