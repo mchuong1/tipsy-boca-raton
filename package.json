@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "formik": "^2.2.9",
+    "gatsby": "^3.11.0",
     "lodash": "^4.17.21",
     "netlify-lambda": "^2.0.11",
     "prop-types": "^15.7.2",
