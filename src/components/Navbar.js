@@ -155,7 +155,7 @@ const Navbar = (props) => {
       className={`${classes.navMenu}`}
     >
       <div className={classes.iconRow}>
-        <AdvancedImage cldImg={tipsyLogo} style={{ maxHeight: '100px' }} />
+        <AdvancedImage cldImg={tipsyLogo} style={{ maxHeight: '100px' }} alt="Tipsy Logo"/>
         <IconButton edge='start' onClick={handleClick}>
           <ChevronLeftIcon style={{ fontSize: '2em' }} />
         </IconButton>
@@ -190,6 +190,7 @@ const Navbar = (props) => {
             style={{ width: '100px', cursor: 'pointer' }}
             cldImg={tipsyLogoWhite}
             onClick={() => history.push('/')}
+            alt="Tipsy Logo"
           />
           {
             isDesktop 

@@ -223,7 +223,7 @@ const LandingPage = (props) => {
             </Button>
           </div>
           <div className={classes.aboutImgWrapper}>
-            <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} />
+            <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} alt="About Paint Splash and Nail Art"/>
           </div>
         </div>
       </Fade>
@@ -260,7 +260,7 @@ const LandingPage = (props) => {
           </p>
         </div>
         <div className={classes.whyImgWrapper}>
-          <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} />
+          <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} alt="Why Image"/>
         </div>
       </div>
       </Fade>
