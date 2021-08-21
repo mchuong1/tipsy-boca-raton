@@ -28,11 +28,32 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   carousel: {
-    height: '76%'
+    height: '72%',
+    '& div': {
+      height: '100%',
+    },
+    '& div div': {
+      height: '100%',
+    }
+  },
+  carouselItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    justifyContent: 'space-between',
+    '& p': {
+      width: '80%',
+      alignSelf: 'center',
+    },
+    '& h2': {
+      fontWeight: 300,
+      paddingBottom: '3em',
+    }
   },
   indicator: {
     position: 'absolute',
     bottom: 0,
+    height: '10% !important',
   }
 }));
 
@@ -42,12 +63,16 @@ const Testimonials = () => {
 
   const items = [
     {
-        name: "Random Name #1",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s"
+        name: "Polly Wood",
+        description: "My body relaxes every time I come here. I feel myself like a real queen thanks to the care of these ladies."
     },
     {
-        name: "Random Name #2",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s"
+        name: "Janice Stevens",
+        description: "This nails and spa salon is the best place for any lady to forget about routine and dive into the ocean of joy."
+    },
+    {
+        name: "Maegan Smith",
+        description: "I love the natural color of this nail polish. It's so soft and it's so fresh. I can't wait to wear it again."
     }
   ]
 
@@ -57,7 +82,15 @@ const Testimonials = () => {
       <div className={classes.testimonialMsg}>
         <h1>Testimonials</h1>
         <Carousel classes={{root: classes.carousel, indicators: classes.indicator}}>
-          {items.map((item, i) => (<div key={i}>{item.description}</div>))}
+          {items.map((item, i) => (
+            <div key={i} className={classes.carouselItem}>
+              <p>
+                {item.description}
+              </p>
+              <h2>
+                {item.name}
+              </h2>
+            </div>))}
         </Carousel>
       </div>
     </div>

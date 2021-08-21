@@ -55,7 +55,6 @@ const Newsletter = () => {
         <div className={classes.container}>
           <h1 style={{ marginBottom: 0 }}>Newsletter</h1>
           <Divider classes={{ root: classes.divider }} />
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           <iframe className={classes.iframe} title="tipsynewsletter" src="https://cdn.forms-content.sg-form.com/b59a3221-ef49-11eb-8da0-d69b50d6f48b"/>
         </div>
       </CoverGirl>

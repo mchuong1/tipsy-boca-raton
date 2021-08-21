@@ -30,7 +30,7 @@ const OnlineBooking = () => {
 
   const goToBooking = () => {
     const bookUrl =
-      'https://www.fresha.com/a/tipsy-salonbar-boca-raton-5030-champion-boulevard-5359d6na/booking';
+      'https://www.rewanow.com/scheduler/4920041042608128';
     window.open(bookUrl, '_blank').focus();
   };
 

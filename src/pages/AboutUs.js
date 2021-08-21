@@ -92,7 +92,12 @@ const AboutUs = () => {
       <div id='aboutUs-container' className={classes.aboutUsContainer}>
         <div className={classes.aboutUsMsg}>
           <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          Our Nail Bar opened its doors, with a team of talented, passionate, caring, creative people 
+          dedicated to doing great nails and giving our clients amazing experiences.
+          
+          We are always looking for the best, most natural products we can find. 
+          When you walk into our doors, you will be greeted with a smile and taken care of by everyone on our team. 
+          Every moment of your visit should be enjoyable and relaxed.
           </p>
         </div>
         <div className={classes.aboutImgWrapper}>

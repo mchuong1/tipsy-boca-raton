@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '18vh',
     maxWidth: '500px',
-    '& h2': {
+    '& h1': {
       color: 'white',
     },
     '& p': {
@@ -175,7 +175,7 @@ const LandingPage = (props) => {
 
   const goToBooking = () => {
     const bookUrl =
-      'https://www.fresha.com/a/tipsy-salonbar-boca-raton-5030-champion-boulevard-5359d6na/booking';
+      'https://www.rewanow.com/scheduler/4920041042608128';
     window.open(bookUrl, '_blank').focus();
   };
 
@@ -184,24 +184,27 @@ const LandingPage = (props) => {
       <div id='top-container' className={classes.imageContainer}>
         <CoverGirl>
           <div className={classes.imgMsg}>
-            <h2>
-              Lorem Ipsum is simply a dummy text of the printing and typesetting
-              industry.
-            </h2>
+            <Fade bottom delay={500}>
+              <h1>
+                Your Escape From Everyday Routine
+              </h1>
+            </Fade>
             {isDesktop && (
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s
-              </p>
+              <Fade bottom delay={1000}>
+                <p>
+                  Making your treatments comfortable and fun
+                </p>
+              </Fade>
             )}
-            <Button
-              variant='contained'
-              classes={{ root: classes.bookNow }}
-              onClick={goToBooking}
-            >
-              Book Now
-            </Button>
+            <Fade bottom delay={1000}>
+              <Button
+                variant='contained'
+                classes={{ root: classes.bookNow }}
+                onClick={goToBooking}
+                >
+                Book Now
+              </Button>
+            </Fade>
           </div>
         </CoverGirl>
       </div>
@@ -210,9 +213,9 @@ const LandingPage = (props) => {
           <div className={classes.aboutUsMsg}>
             <h1>About Us</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industrys standard dummy text
-              ever since the 1500s
+              Our Nail Bar opened its doors, with a team of talented, passionate, caring, creative 
+              people dedicated to doing great nails 
+              and giving our clients amazing experiences.
             </p>
             <Button
               variant='outlined'
@@ -254,9 +257,8 @@ const LandingPage = (props) => {
         <div className={classes.whyChooseUsMsg}>
           <h1>Why Choose Us?</h1>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            ever since the 1500s
+            Our salon will create an original image for your personality, 
+            using methods tried and tested throughout thousands of years.
           </p>
         </div>
         <div className={classes.whyImgWrapper}>
