@@ -1,34 +1,38 @@
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
 
-// using Twilio SendGrid's v3 Node.js Library
-// https://github.com/sendgrid/sendgrid-nodejs
-const sgMail = require('@sendgrid/mail')
+const sendEmail = async (event) => {
+  const { firstName, lastName, message, email, phoneNumber } = JSON.parse(event.body);
+  const DOMAIN = 'tipsynailbarboca.com';
 
-module.exports.handler = async (event,) => {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-  const {firstName, lastName, message, email, phoneNumber} = JSON.parse(event.body)
-  const msg = {
-    to: 'tipsynailbarboca@gmail.com', // Change to your recipient
-    from: 'tipsynail@tipsynailbarboca.com', // Change to your verified sender
-    subject: `Get in Touch: ${firstName} ${lastName}`,
-    text: `${message} - Reply back to ${email} or ${phoneNumber}`
-  }
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent')
+  const mailgun = new Mailgun(formData);
+  const mg = mailgun.client({
+    username: 'api',
+    key: process.env.REACT_APP_MAILGUN_API_KEY,
+  });
+
+  const result = await mg.messages
+    .create(DOMAIN, {
+      from: 'Tipsy Nail Bar Boca Raton <support@tipsynailbarboca.com>',
+      to: 'tipsynailbarboca@gmail.com',
+      subject: `Get In Touch with ${firstName} ${lastName}`,
+      text: `${message} 
+      
+      
+      reply back to ${email} or ${phoneNumber}`,
     })
-    .catch((error) => {
-      console.error(error)
-      return {
-        status: 500,
-        body: error
-      }
-    })
-    return {
-      statusCode: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: 'Email sent'
-    }
-}
+    .then((msg) => msg)
+    .catch((err) => err);
+
+  console.log(result);
+
+  return result;
+};
+
+module.exports.handler = async (event) => {
+  const result = await sendEmail(event);
+  return {
+    statusCode: result.status || 200,
+    body: JSON.stringify(result),
+  };
+};

@@ -79,7 +79,7 @@ const GetInTouch = () => {
       message: '',
     },
     validationSchema,
-    onSubmit: (values) => handleSubmit(values),
+    onSubmit: (values) => handleSubmit(values).then(formik.resetForm()),
   });
 
   return (
