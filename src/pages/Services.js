@@ -207,7 +207,7 @@ const kidsMenuMock = [
 const waxingMock = [
   {
     title: 'Eyebrows',
-    price: '$12',
+    price: '$12 & Up',
   },
 
   {
@@ -216,15 +216,15 @@ const waxingMock = [
   },
   {
     title: 'Chin',
-    price: '$10',
+    price: '$10 & Up',
   },
   {
     title: 'Nose',
-    price: '$8',
+    price: '$10 & Up',
   },
   {
     title: 'Ears',
-    price: '$10',
+    price: '$15',
   },
   {
     title: 'Cheeks',
@@ -232,15 +232,15 @@ const waxingMock = [
   },
   {
     title: 'SideBurns',
-    price: '$10',
+    price: '$15 & Up',
   },
   {
     title: 'Full Face',
-    price: '$40',
+    price: '$50 & Up',
   },
   {
     title: 'Half Arms',
-    price: '$25',
+    price: '$25 & Up',
   },
   {
     title: 'Full Arms',
@@ -248,7 +248,7 @@ const waxingMock = [
   },
   {
     title: 'Under Arms',
-    price: '$20',
+    price: '$20 & Up',
   },
   {
     title: 'Bikini',

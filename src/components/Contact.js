@@ -14,16 +14,18 @@ const Contact = () => {
     <div id='contact-container' className={classes.contactContainer}>
       <h1>Contact</h1>
       <h2>Tipsy Salon Bar Boca Raton</h2>
-      <p>5030 Champion Blvd Ste G12, Boca Raton, FL 33496</p>
-      <p>(561) 419-7199</p>
+      <p>
+        9658 Glade Road #220, Boca Raton, FL 33434
+        <br />
+        Next to Lazy Dog and Amazon Fresh Market
+      </p>
+      <p>(561) 990-1503</p>
 
       <p>Hours</p>
       <p>
-        Monday-Friday: 9:30 AM - 7:30 PM
+        Monday-Saturday: 9:30 AM - 7:00 PM
         <br />
-        Saturday: 9:30 AM - 7 PM
-        <br />
-        Sunday: 11 AM - 5 PM
+        Sunday: 11:00 AM - 6:00 PM
       </p>
     </div>
   );

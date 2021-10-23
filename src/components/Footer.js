@@ -40,11 +40,12 @@ const Footer = () => {
       <div className={classes.socialBar}>
         <FacebookIcon classes={{root: classes.socialIcon}}  onClick={() => goToSocial('https://www.facebook.com/Tipsy-Nailbar-Boca-105414531836108')}/>
         <InstagramIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('https://www.instagram.com/tipsybocaraton/?hl=en')}/>
-        <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.419.7911')}/>
+        <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.990.1503')}/>
         <MailIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('mailto:tipsynailbarboca@gmail.com')}/>
       </div>
       <span>Copyright &copy; 2021 TIPSY SALON BAR | All Rights Reserved</span>
       <span>Web Development by: <span className={classes.link} aria-hidden='true' onClick={() => goToSocial('https://mattchu-portfolio.netlify.app/')}>Matthew Chuong</span></span>
+      <span>Virtual Tour by: <span className={classes.link} aria-hidden='true' onClick={() => goToSocial('https://m.facebook.com/Vtek-103693298707681/')}>Vtek</span></span>
     </div>
   );
 };

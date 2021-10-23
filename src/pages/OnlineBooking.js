@@ -30,7 +30,7 @@ const OnlineBooking = () => {
 
   const goToBooking = () => {
     const bookUrl =
-      'https://www.rewanow.com/scheduler/4920041042608128';
+      `https://www.rewanow.com/scheduler/${process.env.REACT_APP_REWANOW_ID}`;
     window.open(bookUrl, '_blank').focus();
   };
 

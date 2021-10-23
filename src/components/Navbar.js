@@ -122,8 +122,8 @@ const Navbar = (props) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [open, setOpen] = useState(true);
-  const tipsyLogo = cld.image('Tipsy Boca Raton/Tipsy_Nailbar_Logo');
-  const tipsyLogoWhite = cld.image('Tipsy Boca Raton/Tipsy_Nailbar_Logo_White');
+  const tipsyLogo = cld.image('Tipsy Boca Raton/tipsyLogo');
+  const tipsyLogoWhite = cld.image('Tipsy Boca Raton/tipsyLogoWhite');
 
   const handleMenu = (prev) => {
     const nav = document.getElementById('navMenu');
@@ -155,7 +155,7 @@ const Navbar = (props) => {
       className={`${classes.navMenu}`}
     >
       <div className={classes.iconRow}>
-        <AdvancedImage cldImg={tipsyLogo} style={{ maxHeight: '100px' }} alt="Tipsy Logo"/>
+        <AdvancedImage cldImg={tipsyLogo} style={{ maxHeight: '100px', padding: '10px' }} alt="Tipsy Logo"/>
         <IconButton edge='start' onClick={handleClick}>
           <ChevronLeftIcon style={{ fontSize: '2em' }} />
         </IconButton>
@@ -187,7 +187,7 @@ const Navbar = (props) => {
       <AppBar classes={{ root: classes.appBar }} position='sticky'>
         <Toolbar classes={{ root: classes.toolBar }}>
           <AdvancedImage
-            style={{ width: '100px', cursor: 'pointer' }}
+            style={{ width: '75px', cursor: 'pointer', padding: '1rem 0px' }}
             cldImg={tipsyLogoWhite}
             onClick={() => history.push('/')}
             alt="Tipsy Logo"
