@@ -39,7 +39,7 @@ const Footer = () => {
     <div id='footer' className={classes.footer}>
       <div className={classes.socialBar}>
         <FacebookIcon classes={{root: classes.socialIcon}}  onClick={() => goToSocial('https://www.facebook.com/Tipsy-Nailbar-Boca-105414531836108')}/>
-        <InstagramIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('https://www.instagram.com/tipsybocaraton/?hl=en')}/>
+        <InstagramIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('https://www.instagram.com/tipsynailbarboca/?utm_medium=copy_link')}/>
         <PhoneIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('tel:561.990.1503')}/>
         <MailIcon classes={{root: classes.socialIcon}} onClick={() => goToSocial('mailto:tipsynailbarboca@gmail.com')}/>
       </div>
