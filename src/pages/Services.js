@@ -45,19 +45,19 @@ const servicesMock = [
   {
     title: 'Basic Manicure',
     price: '$20',
-    description: 'Trim, shape nails, groom cuticles, massage hands with lotion and regular polish',
+    description: 'Includes nail trimming and shaping, cuticle grooming, buffing, a lotion massage, hot towel service, and finished with your choice of color.',
     color: 'pink'
   },
   {
     title: 'Deluxe Manicure',
     price: '$35',
-    description: ' Basic manicure, extra massage plus hands exfoliating sugar scrub with your choice   (Lavender ,lemon or cucumber) plus paraffin treatment and hot towel.',
+    description: ' An extension of our Basic Manicure. This includes your choice of an exfoliating sugar scrub (lavender, green tea, or citrus) that removes dead skin and paraffin to soften your arms. Followed by hot towel service with an extended arm and hand massage',
     color: 'pink'
   },
   {
     title: 'Gel Manicure',
     price: '$35',
-    description: 'Basic Manicure and finish with gel polish.',
+    description: 'A hybrid product that applies like polish but wears like gel, no chips, last longer than regular nail polish, and best of all have no need for drying time! Provides a strong natural nail protection with a shiny finish.',
     color: 'pink'
   },
 ];
@@ -66,25 +66,25 @@ const pedicureMock = [
   {
     title: 'Basic Pedicure',
     price: '$30',
-    description: 'Trim, file, cuticles,scrub, massage hot towel and regular polish.',
+    description: 'Includes nail trimming and shaping, cuticle grooming, buffing, a lotion massage, hot towel service, and finished with your choice of color.',
     color: 'blue'
   },
   {
     title: 'Signature Pedicure',
     price: '$45',
-    description: 'An extension of our basic pedicure. This includes a callus removed treatment for your      feet and your choice of an exfoliating sugar scrub (lavender, lemon or cucumber) that removes  dead skin, followed by extended foot and leg massage with cooling gel. (Special neck wrap relaxation).',
+    description: 'An extension of our Basic Pedicure. This includes your choice of an exfoliating sugar scrub (lavender, green tea, and callus remover) that removes dead skin and paraffin to soften your arms. Followed by hot towel service with an extended foot and leg massage.',
     color: 'blue'
   },
   {
     title: 'Organic Pedicure',
     price: '$60',
-    description: '100% FREE of paraben, triclosan benzophenone, mineral oil, animal material, ethanol.  Clean, hygienic pedicure prepackaged individually to prevent cross-contamination. Seasalt foot  soak, invigorating scrub massage moisturizing lotion massage, hydrating mud masque, with  PARAFFIN TREATMENT. (Special neck wrap relaxation)',
+    description: 'An extension of our basic pedicure. This includes a callus treatment for your feet in your choice of an exfoliating sugar scrub (kavender, lemon, or mandrin) that removes dead skin.',
     color: 'blue'
   },
   {
     title: 'Jelly Spa Pedicure',
     price: '$70',
-    description: 'JELLY pedicure is unique spa treatment that incorporates JELLY into an ordinary  pedicure treatment for the ultimate luxurious pedicure experience. JELLY holds water  temperature 4 times longer than water, ideal for spa 10 minutes foot soak with JELLY. Followed  by our signature pedicure (Special neck wrap relaxation).',
+    description: 'Jelly pedi is an unique spa pedicure treatment, that incorporates jelly into an ordinary pedicure treatment for the ultimate luxurious pedicure experience. Jelly holds water temperature 4 times longer than water, ideal for spa. 10 minutes foot soak with Jelly, followed our Deluxe pedicure. (Speical neck wrap relaxation).',
     color: 'blue'
   },
   {
