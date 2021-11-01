@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const servicesMock = [
   {
     title: 'Basic Manicure',
-    price: '$17',
+    price: '$20',
     description: 'Trim, shape nails, groom cuticles, massage hands with lotion and regular polish',
     color: 'pink'
   },
@@ -65,7 +65,7 @@ const servicesMock = [
 const pedicureMock = [
   {
     title: 'Basic Pedicure',
-    price: '$28',
+    price: '$30',
     description: 'Trim, file, cuticles,scrub, massage hot towel and regular polish.',
     color: 'blue'
   },
@@ -77,13 +77,13 @@ const pedicureMock = [
   },
   {
     title: 'Organic Pedicure',
-    price: '$55',
+    price: '$60',
     description: '100% FREE of paraben, triclosan benzophenone, mineral oil, animal material, ethanol.  Clean, hygienic pedicure prepackaged individually to prevent cross-contamination. Seasalt foot  soak, invigorating scrub massage moisturizing lotion massage, hydrating mud masque, with  PARAFFIN TREATMENT. (Special neck wrap relaxation)',
     color: 'blue'
   },
   {
     title: 'Jelly Spa Pedicure',
-    // price: '$55',
+    price: '$70',
     description: 'JELLY pedicure is unique spa treatment that incorporates JELLY into an ordinary  pedicure treatment for the ultimate luxurious pedicure experience. JELLY holds water  temperature 4 times longer than water, ideal for spa 10 minutes foot soak with JELLY. Followed  by our signature pedicure (Special neck wrap relaxation).',
     color: 'blue'
   },
@@ -101,51 +101,71 @@ const pedicureMock = [
 
 const nailEnhancementMock = [
   {
-    title: 'Full Set Acrylic',
-    price: '$40',
-  },
-  {
-    title: 'Fill In Nail Polish',
-    price: '$30',
-  },
-  {
-    title: 'Full Set Color Powder',
-    price: '$50',
-  },
-  {
-    title: 'Fill In Color Powder',
-    price: '$40',
-  },
-  {
-    title: 'Full Set Dip Powder',
-    price: '$40',
-  },
-  {
-    title: 'With Tip Extenstions',
+    title: 'Dip Powder-Color',
     price: '$45',
   },
   {
-    title: 'Dip Powder French',
+    title: 'Dip Powder-Pink&White',
+    price: '$50',
+  },
+  {
+    title: 'Ombre Full Set',
     price: '$55',
   },
   {
-    title: 'Ombre Powder',
-    price: '$60',
+    title: 'Full Set Acrylic (Regular Polish)',
+    price: '$35',
+  },
+  {
+    title: 'Full Set Acrylic (With Gel Polish)',
+    price: '$50',
+  },
+  {
+    title: 'Fill In Acrylic (Regular Polish)',
+    price: '$30',
+  },
+  {
+    title: 'Fill In Acrylic (With Gel Polish)',
+    price: '$45',
+  },
+  {
+    title: 'Full Set Acrylic Pink & White',
+    price: '$55',
+  },
+  {
+    title: 'Fill In Pink',
+    price: '$35',
+  },
+  {
+    title: 'Liquid Gel Full Set',
+    price: '$55',
+  },
+  {
+    title: 'Liquid Gel Fill In',
+    price: '$35',
+  },
+  {
+    title: 'Liquid Gel Full Set Pink & White',
+    price: '$65',
+  },
+  {
+    title: 'Liquid Gel Pink Fill',
+    price: '$40',
   },
 ];
 
 const additionalServicesMock = [
   {
     title: 'Regular Polish on Hand',
-    price: '$15'
+    price: '$10'
   },
   {
     title: 'Regular Polish on Foot',
-    price: '$20'
+    price: '$15'
   },
   {
     title: 'Gel Polish on Hand',
-    price: '$20',
+    price: '$22',
   },
   {
     title: 'Gel Polish on Foot',
@@ -153,19 +173,19 @@ const additionalServicesMock = [
   },
   {
     title: 'French Polish',
-    price: '$7',
+    price: '$5',
   },
   {
     title: 'Shape Oval',
-    price: '$7',
+    price: '$5',
   },
   {
     title: 'Stiletto',
-    price: '$7',
+    price: '$5',
   },
   {
     title: 'Coffin',
-    price: '$7',
+    price: '$5',
   },
   {
     title: 'Nail Repair',
@@ -177,7 +197,7 @@ const additionalServicesMock = [
   },
   {
     title: 'Soak Off with Service',
-    price: '$10',
+    price: '$7',
   },
   {
     title: 'Soak Off without Service',
@@ -188,18 +208,22 @@ const additionalServicesMock = [
 const kidsMenuMock = [
   {
     title: 'Manicure',
-    price: '$14',
+    price: '$15',
   },
   {
     title: 'Pedicure',
-    price: '$22',
+    price: '$25',
   },
   {
-    title: 'Regular Color Hand',
+    title: 'Add Gel Polish',
+    price: '$15',
+  },
+  {
+    title: 'Regular Polish Hand',
     price: '$8',
   },
   {
-    title: 'Regular Color Foot',
+    title: 'Regular Polish Foot',
     price: '$10',
   },
 ];
@@ -213,6 +237,10 @@ const waxingMock = [
   {
     title: 'Upper Lip',
     price: '$8',
+  },
+  {
+    title: 'Lower Lip',
+    price: '$5',
   },
   {
     title: 'Chin',
@@ -239,6 +267,10 @@ const waxingMock = [
     price: '$50 & Up',
   },
   {
+    title: 'Under Arms',
+    price: '$20 & Up',
+  },
+  {
     title: 'Half Arms',
     price: '$25 & Up',
   },
@@ -247,32 +279,28 @@ const waxingMock = [
     price: '$40',
   },
   {
-    title: 'Under Arms',
-    price: '$20 & Up',
-  },
-  {
     title: 'Bikini',
-    price: '$30',
+    price: '$30 & Up',
   },
   {
     title: 'Brazilian',
-    price: '$50',
+    price: '$50 & Up',
   },
   {
     title: 'Half Legs',
-    price: '$35',
+    price: '$35 & Up',
   },
   {
     title: 'Full Legs',
-    price: '$55',
+    price: '$55 & Up',
   },
   {
     title: 'Abdomen',
-    price: '$25',
+    price: '$25 & Up',
   },
   {
     title: 'Full Back',
-    price: '$50',
+    price: '$50 & Up',
   },
 ];
 
