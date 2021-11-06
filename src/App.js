@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import OnlineBooking from './pages/OnlineBooking';
 import Newsletter from './pages/Newsletter';
 import ScrollToTop from './components/ScrollToTop';
+import VirtualTour from './pages/VirtualTour';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Service" component={Services} />
         <Route path="/OnlineBooking" component={OnlineBooking} />
         <Route path="/Newsletter" component={Newsletter} />
+        <Route path="/VirtualTour" component={VirtualTour} />
       </Switch>
       <Footer />      
     </div>

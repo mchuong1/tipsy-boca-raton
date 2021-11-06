@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, makeStyles, Paper, useTheme } from '@material-ui/core';
 import { Cloudinary, Transformation } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
@@ -20,6 +20,7 @@ import Contact from '../components/Contact';
 import GetInTouch from '../components/GetInTouch';
 import Testimonials from '../components/Testimonials';
 import Service from '../components/Service';
+import BookingModal from '../components/BookingModal';
 
 const cld = new Cloudinary({
   cloud: {
@@ -145,12 +146,52 @@ const useStyles = makeStyles((theme) => ({
       gridTemplateColumns: '1fr 1fr',
     },
   },
+  virtualTourContainer: {
+    position: 'relative',
+    marginTop: '1rem',
+    '& button': {
+      position: 'absolute',
+      bottom: '1rem',
+      left: '1rem',
+    },
+    [theme.breakpoints.up('sm')]: {
+      padding: '50px',
+      height: '100vh',
+      '& button': {
+        bottom: '5rem',
+        left: '6rem',
+      },
+    },
+  },
+  iframeContainer: {
+    height: '100%',
+    paddingTop: '75%',
+    position: 'relative',
+  },
+  absoluteiFrame: {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+    position: 'absolute',
+    top: 0,
+  },
+  iframe: {
+    width: '100%',
+    height: '100%',
+    border: 'none',
+    // position: 'absolute',
+    // top: 0,
+  },
 }));
 
 const LandingPage = (props) => {
   const classes = useStyles();
   const { history } = props;
   const theme = useTheme();
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   const thinBrushStroke = cld.image('Tipsy Boca Raton/pink_thin_brush_stroke');
@@ -173,35 +214,25 @@ const LandingPage = (props) => {
     );
   }
 
-  const goToBooking = () => {
-    const bookUrl =
-      'https://www.rewanow.com/scheduler/4920041042608128';
-    window.open(bookUrl, '_blank').focus();
-  };
-
   return (
     <div id='landingpage'>
       <div id='top-container' className={classes.imageContainer}>
         <CoverGirl>
           <div className={classes.imgMsg}>
             <Fade bottom delay={500}>
-              <h1>
-                Your Escape From Everyday Routine
-              </h1>
+              <h1>Your Escape From Everyday Routine</h1>
             </Fade>
             {isDesktop && (
               <Fade bottom delay={1000}>
-                <p>
-                  Making your treatments comfortable and fun
-                </p>
+                <p>Making your treatments comfortable and fun</p>
               </Fade>
             )}
             <Fade bottom delay={1000}>
               <Button
                 variant='contained'
                 classes={{ root: classes.bookNow }}
-                onClick={goToBooking}
-                >
+                onClick={() => setOpen(true)}
+              >
                 Book Now
               </Button>
             </Fade>
@@ -213,8 +244,8 @@ const LandingPage = (props) => {
           <div className={classes.aboutUsMsg}>
             <h1>About Us</h1>
             <p>
-              Our Nail Bar opened its doors, with a team of talented, passionate, caring, creative 
-              people dedicated to doing great nails 
+              Our Nail Bar opened its doors, with a team of talented,
+              passionate, caring, creative people dedicated to doing great nails
               and giving our clients amazing experiences.
             </p>
             <Button
@@ -226,7 +257,11 @@ const LandingPage = (props) => {
             </Button>
           </div>
           <div className={classes.aboutImgWrapper}>
-            <AdvancedImage cldImg={brushStroke} style={{ width: '100%' }} alt="About Paint Splash and Nail Art"/>
+            <AdvancedImage
+              cldImg={brushStroke}
+              style={{ width: '100%' }}
+              alt='About Paint Splash and Nail Art'
+            />
           </div>
         </div>
       </Fade>
@@ -253,26 +288,64 @@ const LandingPage = (props) => {
         </div>
       </Fade>
       <Fade bottom delay={600}>
-      <div id='whyChooseUs-container' className={classes.whyChooseUsContainer}>
-        <div className={classes.whyChooseUsMsg}>
-          <h1>Why Choose Us?</h1>
-          <p>
-            Our salon will create an original image for your personality, 
-            using methods tried and tested throughout thousands of years.
-          </p>
+        <div
+          id='whyChooseUs-container'
+          className={classes.whyChooseUsContainer}
+        >
+          <div className={classes.whyChooseUsMsg}>
+            <h1>Why Choose Us?</h1>
+            <p>
+              Our salon will create an original image for your personality,
+              using methods tried and tested throughout thousands of years.
+            </p>
+          </div>
+          <div className={classes.whyImgWrapper}>
+            <AdvancedImage
+              cldImg={thinBrushStroke}
+              style={{ width: '100%' }}
+              alt='Why Image'
+            />
+          </div>
         </div>
-        <div className={classes.whyImgWrapper}>
-          <AdvancedImage cldImg={thinBrushStroke} style={{ width: '100%' }} alt="Why Image"/>
-        </div>
-      </div>
       </Fade>
       <Fade bottom delay={600}>
         <Testimonials />
+      </Fade>
+      <Fade bottom delay={600}>
+        <div className={classes.virtualTourContainer}>
+          {isDesktop ? (
+            <iframe
+              id='virtualTourFrame'
+              title='Virtual Tour Frame'
+              src='https://vnmispa.com'
+              className={classes.iframe}
+              allowFullScreen
+            />
+          ) : (
+            <div className={classes.iframeContainer}>
+              <iframe
+                id='virtualTourFrame'
+                title='Virtual Tour Frame'
+                src='https://vnmispa.com'
+                className={classes.absoluteiFrame}
+                allowFullScreen
+              />
+            </div>
+          )}
+          <Button
+            variant='contained'
+            classes={{ root: classes.bookNow }}
+            onClick={() => setOpen(true)}
+          >
+            Book Now
+          </Button>
+        </div>
       </Fade>
       <div className={classes.contactWrapper}>
         <Contact />
         <GetInTouch />
       </div>
+      <BookingModal open={open} handleClose={handleClose} />
     </div>
   );
 };
