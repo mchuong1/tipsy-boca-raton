@@ -185,6 +185,7 @@ const useStyles = makeStyles((theme) => ({
   },
   alert: {
     borderRadius: '0px !important',
+    fontSize: '1.5rem !important',
   },
 }));
 
