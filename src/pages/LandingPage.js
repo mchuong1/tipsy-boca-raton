@@ -227,7 +227,7 @@ const LandingPage = (props) => {
                 <p>Making your treatments comfortable and fun</p>
               </Fade>
             )}
-            <Fade bottom delay={1000}>
+            <Fade bottom delay={1500}>
               <Button
                 variant='contained'
                 classes={{ root: classes.bookNow }}
@@ -295,8 +295,14 @@ const LandingPage = (props) => {
           <div className={classes.whyChooseUsMsg}>
             <h1>Why Choose Us?</h1>
             <p>
-              Our salon will create an original image for your personality,
-              using methods tried and tested throughout thousands of years.
+              We offer an exclusive beauty and wellness journey tailored to your
+              specific well-being needs. Featuring finest and outstanding
+              services as well as result-driven treatments, we are committed to
+              providing you with insight to a better, healthier state being. Our
+              luxurious, modern-inspired location seamlessly balances both your
+              wellness and appearance through spectacular spatial offerings
+              including signature pedicure treatments, stunning nail care, and
+              designs, luxurious brand name products, and warm, welcoming space.
             </p>
           </div>
           <div className={classes.whyImgWrapper}>
