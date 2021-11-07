@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, makeStyles, Paper, useTheme } from '@material-ui/core';
+import Alert from '@mui/material/Alert';
 import { Cloudinary, Transformation } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
 import { withRouter } from 'react-router';
@@ -182,6 +183,9 @@ const useStyles = makeStyles((theme) => ({
     // position: 'absolute',
     // top: 0,
   },
+  alert: {
+    borderRadius: '0px !important',
+  },
 }));
 
 const LandingPage = (props) => {
@@ -217,6 +221,14 @@ const LandingPage = (props) => {
   return (
     <div id='landingpage'>
       <div id='top-container' className={classes.imageContainer}>
+        <Alert
+          variant='filled'
+          severity='error'
+          icon={false}
+          classes={{ root: classes.alert }}
+        >
+          Grand Opening November 14
+        </Alert>
         <CoverGirl>
           <div className={classes.imgMsg}>
             <Fade bottom delay={500}>
