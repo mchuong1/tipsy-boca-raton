@@ -317,7 +317,7 @@ const LandingPage = (props) => {
             <iframe
               id='virtualTourFrame'
               title='Virtual Tour Frame'
-              src='https://vnmispa.com'
+              src='https://www.tipsyuptownboca.com'
               className={classes.iframe}
               allowFullScreen
             />
@@ -326,7 +326,7 @@ const LandingPage = (props) => {
               <iframe
                 id='virtualTourFrame'
                 title='Virtual Tour Frame'
-                src='https://vnmispa.com'
+                src='https://www.tipsyuptownboca.com'
                 className={classes.absoluteiFrame}
                 allowFullScreen
               />
