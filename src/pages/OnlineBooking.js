@@ -1,10 +1,11 @@
 import { Button, makeStyles } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
+import BookingModal from '../components/BookingModal';
 import CoverGirl from '../components/CoverGirl';
 
 const useStyles = makeStyles({
   root: {
-    position: 'relative'
+    position: 'relative',
   },
   container: {
     position: 'absolute',
@@ -15,36 +16,41 @@ const useStyles = makeStyles({
     textAlign: 'center',
     // eslint-disable-next-line no-dupe-keys
     textAlign: '-webkit-center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   bookNow: {
     marginTop: '2em',
     backgroundColor: '#FC5C9C',
     color: 'white',
   },
-})
+});
 
 const OnlineBooking = () => {
-
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
-  const goToBooking = () => {
-    const bookUrl =
-      `https://www.rewanow.com/scheduler/${process.env.REACT_APP_REWANOW_ID}`;
-    window.open(bookUrl, '_blank').focus();
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
     <div className={classes.root}>
       <CoverGirl>
         <div className={classes.container}>
-          <div style={{width: '200px'}}>
+          <div style={{ width: '200px' }}>
             <h1>Book A Treatment</h1>
-            <div>View a list of our treatments and book</div>
-            <Button classes={{ root: classes.bookNow}} onClick={goToBooking}>Book Now</Button>
+            <p>
+              *** To ensure quality services, online booking appointments will
+              be confirmed via phone by our receptionist. Unconfirmed
+              appointments are subject to cancellation.
+            </p>
+            <Button classes={{ root: classes.bookNow }} onClick={() => setOpen(true)}>
+              Book Now
+            </Button>
           </div>
         </div>
       </CoverGirl>
+      <BookingModal open={open} handleClose={handleClose} />
     </div>
   );
 };
