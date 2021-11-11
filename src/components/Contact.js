@@ -19,7 +19,7 @@ const Contact = () => {
         <br />
         Next to Lazy Dog and Amazon Fresh Market
       </p>
-      <p>(561) 990-1503</p>
+      <p>(561) 990-1305</p>
 
       <p>Hours</p>
       <p>
