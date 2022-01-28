@@ -228,7 +228,7 @@ const LandingPage = (props) => {
           icon={false}
           classes={{ root: classes.alert }}
         >
-          Grand Opening November 14
+          Additional 10% offer on Gift Cards
         </Alert>
         <CoverGirl>
           <div className={classes.imgMsg}>

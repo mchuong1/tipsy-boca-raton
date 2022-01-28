@@ -17,7 +17,7 @@ const Contact = () => {
       <p>
         9658 Glade Road #220, Boca Raton, FL 33434
         <br />
-        Next to Lazy Dog and Amazon Fresh Market
+        Next to Naked Taco
       </p>
       <p>(561) 990-1305</p>
 
