@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, makeStyles, Paper, useTheme } from '@material-ui/core';
-import Alert from '@mui/material/Alert';
 import { Cloudinary, Transformation } from '@cloudinary/base';
 import { AdvancedImage } from '@cloudinary/react';
 import { withRouter } from 'react-router';
@@ -222,14 +221,14 @@ const LandingPage = (props) => {
   return (
     <div id='landingpage'>
       <div id='top-container' className={classes.imageContainer}>
-        <Alert
+        {/* <Alert
           variant='filled'
           severity='error'
           icon={false}
           classes={{ root: classes.alert }}
         >
           Additional 10% offer on Gift Cards
-        </Alert>
+        </Alert> */}
         <CoverGirl>
           <div className={classes.imgMsg}>
             <Fade bottom delay={500}>
