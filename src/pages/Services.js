@@ -72,7 +72,7 @@ const pedicureMock = [
   {
     title: 'Signature Pedicure',
     price: '$45',
-    description: 'An extension of our Basic Pedicure. This includes your choice of an exfoliating sugar scrub (lavender, green tea, and callus remover) that removes dead skin and paraffin to soften your arms. Followed by hot towel service with an extended foot and leg massage.',
+    description: 'An extension of our Basic Pedicure. This includes your choice of an exfoliating sugar scrub (lavender, green tea, and callus remover) that removes dead skin. Followed by hot towel service with an extended foot and leg massage.',
     color: 'blue'
   },
   {
@@ -84,7 +84,7 @@ const pedicureMock = [
   {
     title: 'Jelly Spa Pedicure',
     price: '$70',
-    description: 'Jelly pedi is an unique spa pedicure treatment, that incorporates jelly into an ordinary pedicure treatment for the ultimate luxurious pedicure experience. Jelly holds water temperature 4 times longer than water, ideal for spa. 10 minutes foot soak with Jelly, followed our Deluxe pedicure. (Speical neck wrap relaxation).',
+    description: 'Jelly pedi is an unique spa pedicure treatment, that incorporates jelly into an ordinary pedicure treatment for the ultimate luxurious pedicure experience. Jelly holds water temperature 4 times longer than water, ideal for spa. 10 minutes foot soak with Jelly, followed our Deluxe pedicure. (Special neck wrap relaxation).',
     color: 'blue'
   },
   {
