@@ -49,7 +49,7 @@ const servicesMock = [
     color: 'pink'
   },
   {
-    title: 'Deluxe Manicure',
+    title: 'Signature Manicure',
     price: '$35',
     description: ' An extension of our Basic Manicure. This includes your choice of an exfoliating sugar scrub (lavender, green tea, or citrus) that removes dead skin and paraffin to soften your arms. Followed by hot towel service with an extended arm and hand massage',
     color: 'pink'
@@ -106,23 +106,23 @@ const nailEnhancementMock = [
   },
   {
     title: 'Dip Powder-Pink&White',
-    price: '$50',
-  },
-  {
-    title: 'Ombre Full Set',
     price: '$55',
   },
   {
+    title: 'Ombre Full Set',
+    price: '$65',
+  },
+  {
     title: 'Full Set Acrylic (Regular Polish)',
-    price: '$35',
+    price: '$45',
+  },
+  {
+    title: 'Fill In Acrylic (Regular Polish)',
+    price: '$40',
   },
   {
     title: 'Full Set Acrylic (With Gel Polish)',
     price: '$50',
-  },
-  {
-    title: 'Fill In Acrylic (Regular Polish)',
-    price: '$30',
   },
   {
     title: 'Fill In Acrylic (With Gel Polish)',
@@ -130,50 +130,62 @@ const nailEnhancementMock = [
   },
   {
     title: 'Full Set Acrylic Pink & White',
+    price: '$60',
+  },
+  {
+    title: 'Fill In Pink & White',
     price: '$55',
   },
   {
     title: 'Fill In Pink',
-    price: '$35',
+    price: '$40',
   },
   {
     title: 'Liquid Gel Full Set',
-    price: '$55',
-  },
-  {
-    title: 'Liquid Gel Fill In',
-    price: '$35',
-  },
-  {
-    title: 'Liquid Gel Full Set Pink & White',
-    price: '$65',
+    price: '$70',
   },
   {
     title: 'Liquid Gel Pink Fill',
-    price: '$40',
+    price: '$50',
+  },
+  {
+    title: 'Liquid Gel Full Set Pink & White',
+    price: '$75',
+  },
+  {
+    title: 'Liquid Gel Fill In Pink & White',
+    price: '$65',
   },
 ];
 
 const additionalServicesMock = [
   {
-    title: 'Regular Polish on Hand',
-    price: '$10'
-  },
-  {
-    title: 'Regular Polish on Foot',
+    title: 'Nail Art - 2 Big Toes Acrylic',
     price: '$15'
   },
   {
+    title: 'Nail Art - Fill Toes Acrylic',
+    price: '$10'
+  },
+  {
+    title: 'Regular Polish on Hand',
+    price: '$12'
+  },
+  {
+    title: 'Regular Polish on Foot',
+    price: '$17'
+  },
+  {
     title: 'Gel Polish on Hand',
-    price: '$22',
+    price: '$25',
   },
   {
     title: 'Gel Polish on Foot',
-    price: '$28',
+    price: '$30',
   },
   {
-    title: 'French Polish',
-    price: '$5',
+    title: 'French Nail Polish',
+    price: '$7',
   },
   {
     title: 'Shape Oval',
@@ -216,7 +228,7 @@ const kidsMenuMock = [
   },
   {
     title: 'Add Gel Polish',
-    price: '$15',
+    price: '$10',
   },
   {
     title: 'Regular Polish Hand',
@@ -247,16 +259,16 @@ const waxingMock = [
     price: '$10 & Up',
   },
   {
+    title: 'Cheeks',
+    price: '$10 & Up',
+  },
+  {
     title: 'Nose',
     price: '$10 & Up',
   },
   {
     title: 'Ears',
     price: '$15',
-  },
-  {
-    title: 'Cheeks',
-    price: '$10',
   },
   {
     title: 'SideBurns',
@@ -272,7 +284,7 @@ const waxingMock = [
   },
   {
     title: 'Half Arms',
-    price: '$25 & Up',
+    price: '$25',
   },
   {
     title: 'Full Arms',
@@ -293,6 +305,10 @@ const waxingMock = [
   {
     title: 'Full Legs',
     price: '$55 & Up',
+  },
+  {
+    title: 'Chest',
+    price: '$30 & Up',
   },
   {
     title: 'Abdomen',
