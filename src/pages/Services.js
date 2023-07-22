@@ -106,23 +106,23 @@ const nailEnhancementMock = [
   },
   {
     title: 'Dip Powder-Pink&White',
-    price: '$55',
+    price: '$60',
   },
   {
     title: 'Ombre Full Set',
-    price: '$65',
+    price: '$70',
   },
   {
-    title: 'Full Set Acrylic (Regular Polish)',
-    price: '$45',
+    title: 'Full Set Acrylic (Gel or Regular Polish)',
+    price: '$55',
   },
   {
     title: 'Fill In Acrylic (Regular Polish)',
     price: '$40',
   },
   {
-    title: 'Full Set Acrylic (With Gel Polish)',
-    price: '$50',
+    title: 'Full Set Acrylic Pink & White',
+    price: '$65',
   },
   {
     title: 'Fill In Acrylic (With Gel Polish)',
@@ -142,18 +142,22 @@ const nailEnhancementMock = [
   },
   {
     title: 'Liquid Gel Full Set',
-    price: '$70',
-  },
-  {
-    title: 'Liquid Gel Pink Fill',
-    price: '$50',
-  },
-  {
-    title: 'Liquid Gel Full Set Pink & White',
     price: '$75',
   },
   {
+    title: 'Liquid Gel Pink Fill',
+    price: '$65',
+  },
+  {
+    title: 'Liquid Gel Full Set Pink & White',
+    price: '$80',
+  },
+  {
     title: 'Liquid Gel Fill In Pink & White',
+    price: '$65',
+  },
+  {
+    title: 'Gel-X Full Set',
     price: '$65',
   },
 ];
