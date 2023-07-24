@@ -114,31 +114,15 @@ const nailEnhancementMock = [
   },
   {
     title: 'Full Set Acrylic (Gel or Regular Polish)',
-    price: '$55',
+    price: '$55 & up',
   },
   {
-    title: 'Fill In Acrylic (Regular Polish)',
-    price: '$40',
+    title: 'Fill In Acrylic (Gel or Regular Polish)',
+    price: '$50',
   },
   {
     title: 'Full Set Acrylic Pink & White',
     price: '$65',
-  },
-  {
-    title: 'Fill In Acrylic (With Gel Polish)',
-    price: '$45',
-  },
-  {
-    title: 'Full Set Acrylic Pink & White',
-    price: '$60',
-  },
-  {
-    title: 'Fill In Pink & White',
-    price: '$55',
-  },
-  {
-    title: 'Fill In Pink',
-    price: '$40',
   },
   {
     title: 'Liquid Gel Full Set',
@@ -153,12 +137,9 @@ const nailEnhancementMock = [
     price: '$80',
   },
   {
-    title: 'Liquid Gel Fill In Pink & White',
-    price: '$65',
-  },
-  {
     title: 'Gel-X Full Set',
     price: '$65',
+    description: 'A new alternative option to traditional acrylic nails. The technique can create the length past your natural nails by applying a soft gel tip directly on top of your full natural nail. No dust, no odor, The results are thin and very natural. For those allergic to primer or liquid but want long, good looking nails.'
   },
 ];
 
