@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const servicesMock = [
   {
     title: 'Basic Manicure',
-    price: '$20',
+    price: '$25',
     description: 'Includes nail trimming and shaping, cuticle grooming, buffing, a lotion massage, hot towel service, and finished with your choice of color.',
     color: 'pink'
   },
@@ -65,7 +65,7 @@ const servicesMock = [
 const pedicureMock = [
   {
     title: 'Basic Pedicure',
-    price: '$30',
+    price: '$35',
     description: 'Includes nail trimming and shaping, cuticle grooming, buffing, a lotion massage, hot towel service, and finished with your choice of color.',
     color: 'blue'
   },
@@ -154,11 +154,11 @@ const additionalServicesMock = [
   },
   {
     title: 'Regular Polish on Hand',
-    price: '$12'
+    price: '$15'
   },
   {
     title: 'Regular Polish on Foot',
-    price: '$17'
+    price: '$20'
   },
   {
     title: 'Gel Polish on Hand',
