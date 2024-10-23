@@ -15,7 +15,7 @@ import Maintenance from './pages/Maintenance';
 function App() {
   return (
     <div data-test="component-app">
-      {process.env.REACT_APP_MAINTENANCE === 'true' && <Maintenance />}
+      <Maintenance />
       <Switch>
         <ScrollToTop />
         <Navbar />
