@@ -1,6 +1,7 @@
+import React from 'react';
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   maintenanceOverlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.8)', // Dark overlay
     position: 'fixed',
