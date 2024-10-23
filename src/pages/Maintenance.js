@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 1000, // Ensure it is on top of everything
+    overflow: 'hidden', // Prevent scrolling within the overlay
   },
   maintenanceMessage: {
     padding: '20px',
@@ -25,6 +26,16 @@ const useStyles = makeStyles(() => ({
 
 const Maintenance = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    // Lock scrolling
+    document.body.style.overflow = 'hidden';
+
+    // Cleanup function to unlock scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <div className={classes.maintenanceOverlay}>
