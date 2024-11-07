@@ -10,12 +10,12 @@ import OnlineBooking from './pages/OnlineBooking';
 import Newsletter from './pages/Newsletter';
 import ScrollToTop from './components/ScrollToTop';
 import VirtualTour from './pages/VirtualTour';
-import Maintenance from './pages/Maintenance';
+// import Maintenance from './pages/Maintenance';
 
 function App() {
   return (
     <div data-test="component-app">
-      <Maintenance />
+      {/* <Maintenance /> */}
       <Switch>
         <ScrollToTop />
         <Navbar />
